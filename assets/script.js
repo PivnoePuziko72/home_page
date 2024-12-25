@@ -3,13 +3,27 @@ function calculateDeposit() {
     const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
     const resultDiv = document.getElementById("result");
 
-    if (isNaN(amount) || amount <= 0 || amount > 5000000) {
+    if (isNaN(amount) || amount <= 0) {
         resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
+        return;
+    }
+    if (amount > 5000000) {
+        resultDiv.innerText = "Помилка: Максимальна сума депозиту — 5000000.";
+        return;
+    }
+
+    if (isNaN(rate) || rate <= 0) {
+        resultDiv.innerText = "Помилка: Неправильний відсотковий розмір.";
+        return;
+    }
+    if (isNaN(paydays) || paydays <= 0) {
+        resultDiv.innerText = "Помилка: Неправильна кількість днів.";
         return;
     }
 
     const finalRate = 1.0 + rate / 100;
     const result = amount * Math.pow(finalRate, paydays);
+
     resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
 }
 
