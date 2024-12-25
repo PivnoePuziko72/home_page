@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор депозиту</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="assets/logo.ico" alt="Логотип">
+        <h2>Меню</h2>
+        <a href="index.html">Головна</a>
+        <a href="deposit.html">Калькулятор депозиту</a>
+        <a href="craft.html">Калькулятор крафта</a>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1>Калькулятор депозиту</h1>
+            <form id="depositForm">
+                <input type="number" id="amount" placeholder="Сума (₴)" required>
+                <select id="option">
+                    <option value="0.06 5">5 PayDay - 0.06%</option>
+                    <option value="0.15 10">10 PayDay - 0.15%</option>
+                    <option value="0.3 20">20 PayDay - 0.3%</option>
+                    <option value="0.8 60">60 PayDay - 0.8%</option>
+                </select>
+                <button type="button" onclick="calculateDeposit()">Розрахувати</button>
+            </form>
+            <div id="result"></div>
+            <div class="footer">Reworked by PivnoePuziko72</div>
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
