@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Головна</title>
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
 </head>
 <body>
     <div class="sidebar">
-        <img src="assets/logo.ico" alt="Логотип">
+        <img src="images/logo.ico" alt="Логотип">
         <h2>Меню</h2>
         <a href="index.html">Головна</a>
         <a href="deposit.html">Калькулятор депозиту</a>
@@ -19,5 +18,14 @@
         <h1>Ласкаво просимо!</h1>
         <p>Виберіть розділ у меню, щоб розпочати.</p>
     </div>
+
+    <script src="assets/script.js"></script>
+    <script>
+        fetch('assets/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.head.innerHTML += data;
+        });
+    </script>
 </body>
 </html>
