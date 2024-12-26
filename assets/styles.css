@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 60px; /* Увеличено расстояние для гамбургера */
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
     position: fixed;
@@ -51,7 +51,7 @@ body {
     background-color: #74b9ff;
 }
 
-/* Кнопка для управления боковым меню */
+/* Кнопка для управления боковым меню (гамбургер) */
 .toggle-menu {
     position: fixed;
     top: 15px;
@@ -59,14 +59,16 @@ body {
     background-color: #0984e3;
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 50%;
+    padding: 10px 20px; /* Размер кнопки равен размеру кнопок меню */
+    border-radius: 5px;
     cursor: pointer;
     z-index: 1100;
     font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px; /* Размер кнопки равен размеру кнопок меню */
+    text-align: center;
 }
 
 .toggle-menu.hidden {
