@@ -1,16 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const sidebar = document.querySelector(".sidebar");
-    const content = document.querySelector(".content");
-    const toggleButton = document.createElement("button");
-    toggleButton.id = "menuToggle";
-    toggleButton.innerText = "Меню";
-    document.body.appendChild(toggleButton);
-
-    toggleButton.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-        content.classList.toggle("fullscreen");
-    });
-});
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+    sidebar.classList.toggle('open');
+    content.classList.toggle('shifted');
+}
 
 function calculateDeposit() {
     const amount = parseFloat(document.getElementById("amount").value);
@@ -66,11 +59,4 @@ function calculateCraft() {
     }
 
     resultDiv.innerText = resultText;
-}
-
-function toggleMenu() {
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
-    sidebar.classList.toggle('open');
-    content.classList.toggle('shifted');
 }
