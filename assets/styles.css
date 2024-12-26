@@ -1,12 +1,13 @@
+/* Базовые стили */
 body {
     margin: 0;
     font-family: 'Comfortaa', Arial, sans-serif;
     display: flex;
-    flex-direction: column;
     height: 100vh;
     overflow: hidden;
 }
 
+/* Боковая панель */
 .sidebar {
     width: 200px;
     background-color: #0984e3;
@@ -15,21 +16,25 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    transform: translateX(-200px);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
     position: fixed;
     height: 100%;
-    transition: transform 0.3s ease;
-    z-index: 10;
+    z-index: 1000;
 }
 
-.sidebar.open {
-    transform: translateX(0);
+.sidebar.hidden {
+    transform: translateX(-100%);
 }
 
 .sidebar img {
     width: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
+}
+
+.sidebar h2 {
+    margin: 0 0 10px;
 }
 
 .sidebar a {
@@ -46,50 +51,45 @@ body {
     background-color: #74b9ff;
 }
 
-/* Гамбургер теперь как текстовая кнопка */
-.hamburger {
+/* Кнопка для управления боковым меню */
+.toggle-menu {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    background: none;
+    top: 15px;
+    left: 15px;
+    background-color: #0984e3;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    text-align: left;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
-    z-index: 15;
-}
-
-.hamburger:hover {
-    background-color: #74b9ff;
-    border-radius: 5px;
-}
-
-.hamburger::before {
-    content: "≡";
+    z-index: 1100;
     font-size: 18px;
-    font-weight: bold;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.toggle-menu.hidden {
+    transform: translateX(0);
+}
+
+/* Контент */
 .content {
     flex-grow: 1;
-    margin-left: 0;
+    margin-left: 200px;
     padding: 20px;
     background-color: #74b9ff;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: margin-left 0.3s ease;
-    height: calc(100% - 50px);
-    overflow-y: auto;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 .content.shifted {
-    margin-left: 200px;
+    margin-left: 0;
 }
 
+/* Контейнер */
 .container {
     background-color: white;
     border-radius: 10px;
@@ -104,6 +104,7 @@ body {
     color: #2d3436;
 }
 
+/* Элементы формы */
 input, select, button {
     width: 90%;
     padding: 10px;
@@ -124,13 +125,13 @@ button:hover {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    margin-top: 20px;
     font-size: 12px;
     color: #636e72;
-    text-align: center;
-    padding: 10px;
-    background-color: #f1f1f1;
+}
+
+#result {
+    margin-top: 10px;
+    color: #2d3436;
+    font-weight: bold;
 }
