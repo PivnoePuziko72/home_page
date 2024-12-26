@@ -13,12 +13,25 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-200px);
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar.active {
+    transform: translateX(0);
 }
 
 .sidebar img {
     width: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
+}
+
+.sidebar h2 {
+    color: #dfe6e9;
 }
 
 .sidebar a {
@@ -42,6 +55,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 200px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.content.fullscreen {
+    margin-left: 0;
 }
 
 .container {
@@ -87,4 +106,17 @@ button:hover {
     margin-top: 10px;
     color: #2d3436;
     font-weight: bold;
+}
+
+#menuToggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
 }
