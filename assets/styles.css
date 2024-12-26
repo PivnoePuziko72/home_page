@@ -9,7 +9,7 @@ body {
 
 /* Боковая панель */
 .sidebar {
-    width: 250px; /* Увеличена ширина боковой панели */
+    width: 200px;
     background-color: #0984e3;
     color: white;
     display: flex;
@@ -28,30 +28,14 @@ body {
 }
 
 .sidebar img {
-    width: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 40px; /* Уменьшенный размер логотипа */
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
+/* Заголовок */
 .sidebar h2 {
     margin: 0 0 10px;
-}
-
-/* Кнопка для управления боковым меню (гамбургер) */
-.toggle-menu {
-    position: absolute;
-    top: 20px; /* Вернули в верхний левый угол */
-    left: 20px;
-    background-color: #0984e3;
-    color: white;
-    border: 2px solid white; /* Белая обводка */
-    padding: 10px 20px; /* Размер кнопки равен размеру кнопок меню */
-    border-radius: 25px; /* Заокругленные углы */
-    cursor: pointer;
-    z-index: 1100;
-    font-size: 18px;
-    width: 100px; /* Размер кнопки равен размеру кнопок меню */
-    text-align: center;
 }
 
 /* Кнопки меню */
@@ -59,7 +43,7 @@ body {
     color: white;
     text-decoration: none;
     margin: 10px 0;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Сделаны уже */
     border-radius: 25px; /* Заокругленные углы */
     text-align: center;
     width: 90%;
@@ -73,7 +57,7 @@ body {
 /* Контент */
 .content {
     flex-grow: 1;
-    margin-left: 250px; /* Увеличено расстояние для нового размера сайдбара */
+    margin-left: 200px;
     padding: 20px;
     background-color: #74b9ff;
     display: flex;
