@@ -67,3 +67,10 @@ function calculateCraft() {
 
     resultDiv.innerText = resultText;
 }
+
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
+    sidebar.classList.toggle('open');
+    content.classList.toggle('shifted');
+}
