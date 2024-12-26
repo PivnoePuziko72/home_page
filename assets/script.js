@@ -1,22 +1,43 @@
-function toggleMenu() {
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
-    sidebar.classList.toggle('open');
-    content.classList.toggle('shifted');
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.querySelector(".sidebar");
+    const toggleButton = document.createElement("button");
+    toggleButton.classList.add("toggle-menu");
+    toggleButton.innerHTML = "&#9776;"; // Символ гамбургера
+    document.body.appendChild(toggleButton);
 
+    toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("hidden");
+        document.querySelector(".content").classList.toggle("shifted");
+    });
+});
+
+// Существующие функции
 function calculateDeposit() {
     const amount = parseFloat(document.getElementById("amount").value);
     const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
     const resultDiv = document.getElementById("result");
 
-    if (isNaN(amount) || amount <= 0 || amount > 5000000) {
+    if (isNaN(amount) || amount <= 0) {
         resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
+        return;
+    }
+    if (amount > 5000000) {
+        resultDiv.innerText = "Помилка: Максимальна сума депозиту — 5000000.";
+        return;
+    }
+
+    if (isNaN(rate) || rate <= 0) {
+        resultDiv.innerText = "Помилка: Неправильний відсотковий розмір.";
+        return;
+    }
+    if (isNaN(paydays) || paydays <= 0) {
+        resultDiv.innerText = "Помилка: Неправильна кількість днів.";
         return;
     }
 
     const finalRate = 1.0 + rate / 100;
     const result = amount * Math.pow(finalRate, paydays);
+
     resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
 }
 
