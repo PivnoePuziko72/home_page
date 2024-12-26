@@ -9,13 +9,13 @@ body {
 
 /* Боковая панель */
 .sidebar {
-    width: 200px;
+    width: 250px; /* Увеличена ширина боковой панели */
     background-color: #0984e3;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 60px; /* Увеличено расстояние для гамбургера */
+    padding-top: 20px;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
     position: fixed;
@@ -40,9 +40,8 @@ body {
 /* Кнопка для управления боковым меню (гамбургер) */
 .toggle-menu {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 20px; /* Вернули в верхний левый угол */
+    left: 20px;
     background-color: #0984e3;
     color: white;
     border: 2px solid white; /* Белая обводка */
@@ -74,7 +73,7 @@ body {
 /* Контент */
 .content {
     flex-grow: 1;
-    margin-left: 200px;
+    margin-left: 250px; /* Увеличено расстояние для нового размера сайдбара */
     padding: 20px;
     background-color: #74b9ff;
     display: flex;
