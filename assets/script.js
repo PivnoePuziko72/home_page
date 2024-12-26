@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
-    const toggleButton = document.createElement("button");
-    toggleButton.classList.add("toggle-menu");
-    toggleButton.innerHTML = "Меню"; // Меню в тексте, а не гамбургер
-    document.body.appendChild(toggleButton);
+    const logo = document.querySelector(".sidebar img");
 
-    toggleButton.addEventListener("click", () => {
+    // Переключение видимости боковой панели
+    logo.addEventListener("click", () => {
         sidebar.classList.toggle("hidden");
         document.querySelector(".content").classList.toggle("shifted");
     });
