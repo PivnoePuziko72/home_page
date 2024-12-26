@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const toggleButton = document.createElement("button");
     toggleButton.classList.add("toggle-menu");
-    toggleButton.innerHTML = "&#9776;"; // Символ гамбургера
+    toggleButton.innerHTML = "Меню"; // Меню в тексте, а не гамбургер
     document.body.appendChild(toggleButton);
 
     toggleButton.addEventListener("click", () => {
