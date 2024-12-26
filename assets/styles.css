@@ -31,6 +31,7 @@ body {
     border-radius: 50%;
     border: 2px solid white; /* Белая обводка */
     background-color: #0984e3;
+    transition: transform 0.3s ease;
 }
 
 .sidebar h2 {
@@ -42,10 +43,10 @@ body {
     color: white;
     text-decoration: none;
     margin: 10px 0;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Уменьшена ширина кнопок */
     border-radius: 20px; /* Заокругленные края */
     text-align: center;
-    width: 90%;
+    width: 85%; /* Кнопки стали уже */
     border: 2px solid white; /* Белая обводка */
     transition: background-color 0.3s, color 0.3s;
 }
