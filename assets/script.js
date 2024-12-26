@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Функция расчета депозита
+// Существующие функции
 function calculateDeposit() {
     const amount = parseFloat(document.getElementById("amount").value);
     const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
@@ -39,7 +39,6 @@ function calculateDeposit() {
     resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
 }
 
-// Функция расчета крафта
 function calculateCraft() {
     const recipes = {
         glintwein: {
