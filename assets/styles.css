@@ -46,22 +46,24 @@ body {
     background-color: #74b9ff;
 }
 
+/* Гамбургер теперь как текстовая кнопка */
 .hamburger {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: #0984e3;
+    background: none;
     color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: left;
     cursor: pointer;
     z-index: 15;
 }
 
 .hamburger:hover {
     background-color: #74b9ff;
+    border-radius: 5px;
 }
 
 .hamburger::before {
