@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
         sidebar.classList.toggle("hidden");
         document.querySelector(".content").classList.toggle("shifted");
     });
+
+    // Логотип всегда на виду
+    sidebar.addEventListener("transitionend", () => {
+        if (sidebar.classList.contains("hidden")) {
+            logo.style.transform = "translateX(0)"; // Возвращаем в исходное положение
+        } else {
+            logo.style.transform = "none"; // Сбрасываем смещение
+        }
+    });
 });
 
 // Существующие функции
