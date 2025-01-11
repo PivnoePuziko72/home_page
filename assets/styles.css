@@ -5,14 +5,28 @@ body {
     height: 100vh;
 }
 
+.hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10; /* Чтобы оставаться поверх остальных элементов */
+}
+
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 200px;
+    height: 100%;
     background-color: #0984e3;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 70px;
+    padding-top: 10px;
     transition: transform 0.3s ease;
 }
 
@@ -20,40 +34,29 @@ body {
     transform: translateX(-100%);
 }
 
-.sidebar img {
-    position: fixed; /* Логотип всегда видимый */
-    top: 10px; /* Отступ от верхнего края */
-    left: 10px; /* Отступ от левого края */
+.sidebar-logo {
     width: 50px;
     height: 50px;
-    cursor: pointer; /* Указатель при наведении */
-    z-index: 1000; /* Поверх остальных элементов */
-    border-radius: 50%;
-    border: 2px solid white; /* Белая обводка */
-    background-color: #0984e3;
-    transition: transform 0.3s ease;
-}
-
-.sidebar h2 {
-    margin: 20px 0;
-    font-size: 18px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .sidebar a {
     color: white;
     text-decoration: none;
     margin: 10px 0;
-    padding: 8px 15px; /* Уменьшена ширина кнопок */
-    border-radius: 20px; /* Заокругленные края */
+    padding: 10px 15px;
+    border-radius: 25px;
     text-align: center;
-    width: 85%; /* Кнопки стали уже */
-    border: 2px solid white; /* Белая обводка */
-    transition: background-color 0.3s, color 0.3s;
+    width: 90%;
+    transition: background-color 0.3s ease, filter 0.3s ease;
 }
 
 .sidebar a:hover {
-    background-color: white;
-    color: #0984e3;
+    background-color: #74b9ff;
+    filter: brightness(1.2);
 }
 
 .content {
@@ -63,11 +66,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: margin-left 0.3s ease;
-}
-
-.content.shifted {
-    margin-left: -200px;
 }
 
 .container {
@@ -97,11 +95,14 @@ button {
     background-color: #0984e3;
     color: white;
     cursor: pointer;
-    border: 2px solid white;
 }
 
 button:hover {
     background-color: #74b9ff;
+}
+
+button:active {
+    filter: brightness(0.9);
 }
 
 .footer {
