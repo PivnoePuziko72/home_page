@@ -16,13 +16,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-left: 40px; /* Отступ слева */
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 10;
-}
-
-/* Логотип в хедере */
-.header .logo {
-    height: 40px;
 }
 
 /* Меню поиска в хедере */
@@ -41,7 +39,7 @@ body {
 
 .search-container button {
     padding: 8px 15px;
-    background-color: #4CAF50;
+    background-color: #0984e3; /* Цвет кнопки по аналогии с сайдбаром */
     color: white;
     border: none;
     border-radius: 5px;
@@ -49,7 +47,7 @@ body {
 }
 
 .search-container button:hover {
-    background-color: #45a049;
+    background-color: #74b9ff; /* Цвет при наведении */
 }
 
 /* Кнопка гамбургера */
@@ -70,7 +68,7 @@ body {
     left: -200px; /* Скрыт за пределами экрана */
     width: 200px;
     height: 100%;
-    background-color: #0984e3;
+    background-color: #0984e3; /* Цвет сайдбара */
     color: white;
     display: flex;
     flex-direction: column;
@@ -157,9 +155,6 @@ body {
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
 }
 
