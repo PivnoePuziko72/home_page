@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #74b9ff; /* Синий фон для сайта */
+    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
 }
 
 .hamburger {
@@ -68,19 +68,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
 /* Меню поиска */
 #search-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Центрируем меню поиска */
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     background-color: #f1f1f1;
-    position: fixed; /* Закрепляем в верхней части */
+    position: fixed; /* Закрепляем меню поиска */
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
     width: 100%;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -115,15 +115,14 @@ body {
 #search-results {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Распределяем элементы по всему доступному пространству */
-    margin-top: 120px; /* Отступ снизу меню поиска, чтобы результаты не перекрывали меню */
-    padding: 10px;
-    width: calc(100% - 220px); /* Ширина с учетом сайдбара */
-    box-sizing: border-box;
+    justify-content: center;
+    margin-top: 80px; /* Добавлен небольшой отступ от меню поиска */
+    padding-left: 20px; /* Отступ слева, чтобы избежать конфликта с сайдбаром */
+    width: calc(100% - 220px); /* Уменьшаем ширину на 220px (ширина сайдбара) */
+    padding-right: 20px; /* Добавляем отступ справа, чтобы не было конфликтов с сайдбаром */
     background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
 }
 
-/* Элементы в поиске */
 .car-item {
     background-color: #eaeaea;
     border: 2px solid white;
@@ -131,9 +130,8 @@ body {
     padding: 15px;
     margin: 10px;
     text-align: center;
-    width: calc(33.33% - 20px); /* 3 элемента на строку */
+    width: 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
 }
 
 .car-item img {
