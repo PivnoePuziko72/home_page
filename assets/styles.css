@@ -169,29 +169,3 @@ body {
 .footer p {
     margin: 0;
 }
-
-/* Стиль для выделенного текста */
-.highlight {
-  border-radius: 75%; /* Круглый контур */
-  padding: 0 0px; /* Немного отступов вокруг текста */
-  position: relative; /* Для анимации */
-  display: inline-block; /* Важное для работы с анимацией */
-  overflow: hidden; /* Убираем лишнее, если что-то выходит за пределы */
-  animation: none
-}
-
-/* Анимация для эффекта змейки */
-@keyframes snake {
-  0% {
-    border: 2px solid transparent;
-    box-shadow: 0 0 0 0px rgba(0, 255, 0, 1);
-  }
-  50% {
-    border: 2px solid #8BC34A;
-    box-shadow: 0 0 15px 5px rgba(0, 255, 0, 1);
-  }
-  100% {
-    border: 2px solid transparent;
-    box-shadow: 0 0 0 0px rgba(0, 255, 0, 1);
-  }
-}
