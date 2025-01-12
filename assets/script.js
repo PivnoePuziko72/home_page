@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             carElement.innerHTML = `
                 <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
                 <p><strong>Модель:</strong> ${car.id}</p>
-                <p><strong>Название:</strong> ${car.name}</p>
+                <p><strong>Назва:</strong> ${car.name}</p>
             `;
             searchResults.appendChild(carElement);
         });
