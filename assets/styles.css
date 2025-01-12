@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
-    padding-left: 20px; /* Отступ слева */
+    padding-left: 40px; /* Отступ слева */
 }
 
 /* Меню поиска в хедере */
@@ -72,7 +72,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     padding-top: 10px;
     transition: left 0.3s ease; /* Плавное открытие */
     z-index: 2; /* Слой выше хедера */
