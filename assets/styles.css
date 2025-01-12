@@ -158,3 +158,29 @@ button:active {
 .search-item p {
     margin: 10px 0;
 }
+
+/* Контейнер для всех автомобилей */
+#search-results {
+    display: flex;
+    flex-wrap: wrap;  /* Разрешаем перенос элементов на новую строку */
+    gap: 20px; /* Расстояние между автомобилями */
+}
+
+/* Каждый ряд */
+.car-row {
+    display: flex;
+    justify-content: space-between;  /* Распределение элементов по ширине */
+    width: 100%;
+}
+
+/* Каждый элемент (автомобиль) */
+.search-item {
+    width: 30%; /* Ширина одного элемента, 3 на ряд */
+    text-align: center;
+}
+
+.search-item img {
+    width: 100%; /* Ширина изображения авто */
+    max-width: 600px;  /* Ограничиваем максимальный размер */
+    height: auto;
+}
