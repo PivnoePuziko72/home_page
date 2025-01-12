@@ -126,7 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
 
     // Список автомобилей (данные из JSON)
-    const cars = vehicles;
+    let cars = [];
+
+    // Fetch vehicles data from the correct path
+    fetch('./assets/carsData.json')
+        .then(response => response.json())
+        .then(data => {
+            cars = data.vehicles;
+        })
+        .catch(error => console.error('Error loading JSON data:', error));
 
     // Функция поиска автомобилей
     function searchCars(query) {
@@ -166,14 +174,3 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value;
         searchCars(query);
     });
-
-    // Открытие/закрытие сайдбара при клике на гамбургер
-    hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-    });
-});
-
-        const query = searchInput.value;
-        searchCars(query);
-    });
-});
