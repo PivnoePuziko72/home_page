@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const hamburger = document.querySelector(".hamburger");
 
+    // Начальная позиция гамбургера
+    let initialX = 10; // Начальное значение по X
+    let initialY = 10; // Начальное значение по Y
+
+    hamburger.style.left = `${initialX}px`;
+    hamburger.style.top = `${initialY}px`;
+
     hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('open'); // Переключаем класс open для отображения/скрытия
     });
@@ -134,21 +141,24 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    // JavaScript для "убегающего" гамбургера (в пределах 3 пикселей)
+    // JavaScript для "убегающего" гамбургера
     hamburger.addEventListener("mousemove", (event) => {
         const rect = hamburger.getBoundingClientRect(); // Координаты кнопки
         const offsetX = event.clientX - rect.left - rect.width / 2; // Смещение по X
         const offsetY = event.clientY - rect.top - rect.height / 2; // Смещение по Y
 
-        // Расстояние между мышью и центром кнопки
-        const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+        // Ограничение движения гамбургера
+        const maxDistance = 10;
 
-        if (distance < 30) { // Если курсор приближается на 30px
-            // Перемещаем кнопку на небольшое расстояние в пределах 3 пикселей
-            const moveX = Math.random() * 6 - 3; // Случайное смещение от -3 до 3 по X
-            const moveY = Math.random() * 6 - 3; // Случайное смещение от -3 до 3 по Y
-
-            hamburger.style.transform = `translate(${moveX}px, ${moveY}px)`; // Применяем смещение
+        if (Math.abs(offsetX) < maxDistance && Math.abs(offsetY) < maxDistance) {
+            return;
         }
+
+        // Смещение гамбургера
+        const newX = initialX + (offsetX > 0 ? maxDistance : -maxDistance);
+        const newY = initialY + (offsetY > 0 ? maxDistance : -maxDistance);
+
+        hamburger.style.left = `${newX}px`;
+        hamburger.style.top = `${newY}px`;
     });
 });
