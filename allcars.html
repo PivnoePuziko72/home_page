@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список автомобілів 2.5</title>
+    <title>Список автомобілів</title>
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    <script type="module" src="assets/script.js" defer></script>
 </head>
 <body>
     <!-- Кнопка-гамбургер -->
@@ -18,22 +18,20 @@
         <a href="index.html">Головна</a>
         <a href="deposit.html">Калькулятор депозиту</a>
         <a href="craft.html">Калькулятор крафта</a>
+        <a href="allcars.html">Автомобілі</a> <!-- Ссылка на текущую страницу -->
     </div>
 
     <!-- Контент -->
     <div class="content">
-        <div id="login-container" class="container">
-            <h1>Вхід на сторінку</h1>
-            <input type="password" id="password-input" placeholder="Введіть пароль">
-            <button onclick="checkPassword()">Увійти</button>
-            <div id="error-message" style="color: red; display: none;">Неправильний пароль!</div>
+        <h1>Список автомобілів</h1>
+        
+        <!-- Поиск -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Пошук автомобіля...">
         </div>
 
-        <div id="allcars-container" class="container" style="display: none;">
-            <h1>Список автомобілів</h1>
-            <p>Тут можна знайти всі автомобілі.</p>
-            <!-- Содержание страницы -->
-        </div>
+        <!-- Результаты поиска -->
+        <div class="search-results" id="resultsContainer"></div>
     </div>
 
     <script src="assets/script.js"></script>
