@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
             carElement.classList.add("car-item");
 
             // Если запрос не пустой, то выделяем найденные фрагменты
-            const highlightedName = query ? highlightText(car.name, query) : car.name;
-            const highlightedId = query ? highlightText(car.id, query) : car.id;
+            const highlightedName = query && query.trim() !== "" ? highlightText(car.name, query) : car.name;
+            const highlightedId = query && query.trim() !== "" ? highlightText(car.id, query) : car.id;
 
             carElement.innerHTML = `
                 <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
@@ -168,9 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const maxMove = 20;
             const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
             const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
-
-            hamburger.style.left = `${20 + moveX}px`; // Начальная позиция 20px от левого края
-            hamburger.style.top = `${20 + moveY}px`;  // Начальная позиция 20px от верхнего края
         }
     });
 });
