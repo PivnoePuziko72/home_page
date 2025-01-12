@@ -118,41 +118,55 @@ function checkPassword() {
 
 import carsData from './carsData.json';
 
-const searchInput = document.querySelector('#searchInput');
-const resultsContainer = document.querySelector('#resultsContainer');
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-btn');
+    const searchResults = document.getElementById('search-results');
 
-searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    const filteredCars = carsData.filter(car => {
-        return car.name.toLowerCase().includes(query) || car.model.includes(query);
-    });
+    // Массив автомобилей (для примера)
+    const cars = [
+        { name: 'Tesla Model S', model: 'TeslaS', image: 'images/tesla_model_s.jpg' },
+        { name: 'BMW 3 Series', model: 'BMW3', image: 'images/bmw_3_series.jpg' },
+        { name: 'Audi A4', model: 'AudiA4', image: 'images/audi_a4.jpg' },
+        // Добавьте другие автомобили
+    ];
 
-    displayResults(filteredCars);
-});
-
-function displayResults(cars) {
-    resultsContainer.innerHTML = '';
-    cars.forEach(car => {
-        const carElement = document.createElement('div');
-        carElement.classList.add('car');
-
-        const carImage = document.createElement('img');
-        carImage.src = `assets/carsmodels/${car.model}.png`;
-        carElement.appendChild(carImage);
-
-        const carDetails = document.createElement('div');
-        carDetails.classList.add('car-details');
-        carDetails.innerHTML = `
-            <p>Model: ${car.model}</p>
-            <p>Name: ${car.name}</p>
-        `;
-        carElement.appendChild(carDetails);
-
-        resultsContainer.appendChild(carElement);
-    });
-}
-
-        errorMessage.style.display = "block";
-        setTimeout(() => (errorMessage.style.display = "none"), 3000);
+    // Функция поиска
+    function searchCars(query) {
+        const filteredCars = cars.filter(car =>
+            car.name.toLowerCase().includes(query.toLowerCase())
+        );
+        displayResults(filteredCars);
     }
-}
+
+    // Отображение результатов
+    function displayResults(cars) {
+        searchResults.innerHTML = '';
+        if (cars.length === 0) {
+            searchResults.innerHTML = '<p>Автомобілі не знайдено.</p>';
+            return;
+        }
+
+        cars.forEach(car => {
+            const carElement = document.createElement('div');
+            carElement.classList.add('search-item');
+            carElement.innerHTML = `
+                <img src="${car.image}" alt="${car.name}">
+                <p>${car.name}</p>
+            `;
+            searchResults.appendChild(carElement);
+        });
+    }
+
+    // Поиск по нажатию на кнопку
+    searchButton.addEventListener('click', () => {
+        const query = searchInput.value;
+        searchCars(query);
+    });
+
+    // Поиск при изменении ввода
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value;
+        searchCars(query);
+    });
+});
