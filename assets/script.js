@@ -116,8 +116,6 @@ function checkPassword() {
         allCarsContainer.style.display = "block";
     } else {
 
-import vehicles from './carsData.json';
-
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-btn');
@@ -125,20 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const sidebar = document.querySelector('.sidebar');
 
-    // Список автомобилей (данные из JSON)
-    let cars = [];
+    // Переменная для хранения данных из JSON
+    let vehicles = [];
 
-    // Fetch vehicles data from the correct path
+    // Загружаем данные из JSON
     fetch('./assets/carsData.json')
         .then(response => response.json())
         .then(data => {
-            cars = data.vehicles;
+            vehicles = data.vehicles; // Данные автомобилей
         })
-        .catch(error => console.error('Error loading JSON data:', error));
+        .catch(error => console.error('Ошибка при загрузке JSON:', error));
 
     // Функция поиска автомобилей
     function searchCars(query) {
-        const filteredCars = cars.filter(car =>
+        const filteredCars = vehicles.filter(car =>
             car.name.toLowerCase().includes(query.toLowerCase())
         );
         displayResults(filteredCars);
@@ -146,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Отображение результатов поиска
     function displayResults(cars) {
-        searchResults.innerHTML = '';
+        searchResults.innerHTML = ''; // Очищаем текущие результаты
         if (cars.length === 0) {
             searchResults.innerHTML = '<p>Автомобілі не знайдено.</p>';
             return;
@@ -156,7 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const carElement = document.createElement('div');
             carElement.classList.add('search-item');
             carElement.innerHTML = `
-                <img src="${car.image}" alt="${car.name}">
+                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}" /> <!-- Путь к изображению -->
+                <p>Модель: ${car.id}</p>
                 <p>${car.name}</p>
             `;
             searchResults.appendChild(carElement);
@@ -174,3 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value;
         searchCars(query);
     });
+
+    // Открытие/закрытие сайдбара при клике на гамбургер
+    hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+});
+
