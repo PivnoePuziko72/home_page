@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список автомобілів 2.5</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+</head>
+<body>
+    <!-- Кнопка-гамбургер -->
+    <img src="images/logo.ico" alt="Логотип" class="hamburger">
+
+    <!-- Сайдбар -->
+    <div class="sidebar">
+        <img src="images/logo.ico" alt="Логотип" class="sidebar-logo">
+        <h2>Меню</h2>
+        <a href="index.html">Головна</a>
+        <a href="deposit.html">Калькулятор депозиту</a>
+        <a href="craft.html">Калькулятор крафта</a>
+    </div>
+
+    <!-- Контент -->
+    <div class="content">
+        <div id="login-container" class="container">
+            <h1>Вхід на сторінку</h1>
+            <input type="password" id="password-input" placeholder="Введіть пароль">
+            <button onclick="checkPassword()">Увійти</button>
+            <div id="error-message" style="color: red; display: none;">Неправильний пароль!</div>
+        </div>
+
+        <div id="allcars-container" class="container" style="display: none;">
+            <h1>Список автомобілів</h1>
+            <p>Тут можна знайти всі автомобілі.</p>
+            <!-- Содержание страницы -->
+        </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
