@@ -9,6 +9,18 @@
     <link rel="icon" type="image/x-icon" href="images/logo.ico">
 </head>
 <body>
+    <!-- Хедер -->
+    <header class="header">
+        <div class="header-container">
+            <img src="images/logo.ico" alt="Логотип" class="logo">
+            <!-- Меню поиска автомобилей -->
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Шукати автомобіль за назвою або моделлю...">
+                <button id="search-btn">Пошук</button>
+            </div>
+        </div>
+    </header>
+
     <!-- Кнопка-гамбургер -->
     <img src="images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
 
@@ -18,22 +30,22 @@
         <h2>Меню</h2>
         <a href="index.html">Головна</a>
         <a href="deposit.html">Калькулятор депозиту</a>
-        <a href="craft.html">Калькулятор крафта</a>
-        <a href="allcars.html">Всі автомобілі</a>
+        <a href="craft.html">Івент-підрахуйщик 2.5</a>
+        <a href="allcars.html">Транспорт 2.5</a>
     </div>
 
     <!-- Контент -->
     <div class="content">
         <div class="container">
-            <!-- Меню пошуку -->
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Шукати автомобіль за назвою або моделлю...">
-                <button id="search-btn">Пошук</button>
-            </div>
             <!-- Результати пошуку -->
             <div id="search-results" class="search-results"></div>
         </div>
     </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <p>© 2025 Всі права захищені</p>
+    </footer>
 
     <script type="module" src="assets/script.js"></script>
 </body>
