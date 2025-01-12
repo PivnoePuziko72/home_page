@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #74b9ff; /* Убедитесь, что фон всегда синий */
+    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
 }
 
 .hamburger {
@@ -73,16 +73,17 @@ body {
 /* Меню поиска */
 #search-container {
     display: flex;
-    justify-content: center; /* Центрирование меню поиска по горизонтали */
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     background-color: #f1f1f1;
-    position: sticky; /* Закрепляем меню поиска сверху */
+    position: fixed; /* Закрепить меню поиска */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 0; /* Убирает отступ сверху */
 }
 
 #search-container label {
@@ -112,15 +113,13 @@ body {
 
 /* Результаты поиска */
 #search-results {
-    display: grid; /* Используем grid для трех элементов в строке */
-    grid-template-columns: repeat(3, 1fr); /* Результаты по 3 на строку */
-    gap: 20px; /* Расстояние между результатами */
-    margin: 20px auto;
-    padding-top: 20px; /* Убираем лишний отступ */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px; /* Убираем отступ сверху, результаты появляются ниже меню */
+    padding-left: 10px; /* Добавляем небольшой отступ слева */
+    width: 90%;
     background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
-    padding-left: 20px; /* Отступ слева для предотвращения конфликта с сайдбаром */
-    padding-right: 20px; /* Отступ справа */
-    width: 100%;
 }
 
 .car-item {
@@ -128,8 +127,15 @@ body {
     border: 2px solid white;
     border-radius: 8px;
     padding: 15px;
+    margin: 10px;
     text-align: center;
+    width: 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Правка сдвига элементов для правильного отображения */
+#search-results .car-item {
+    margin-left: 10px; /* Легкий отступ от левого края для предотвращения перекрытия с сайдбаром */
 }
 
 .car-item img {
