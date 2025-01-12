@@ -84,7 +84,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 10px;
     transition: left 0.35s ease; /* Плавное открытие */
     z-index: 2; /* Слой выше хедера */
