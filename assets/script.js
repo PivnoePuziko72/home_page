@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".content").classList.toggle("shifted");
     });
 
-    // Существующие функции для депозита и крафта (не изменялись)
+    // Существующие функции для депозита и крафта
     function calculateDeposit() {
         const amount = parseFloat(document.getElementById("amount").value);
         const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
@@ -79,21 +79,21 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search-input');
-    const searchButton = document.getElementById('search-btn');
-    const searchResults = document.getElementById('search-results');
+    // Работа с поиском автомобилей
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-btn");
+    const searchResults = document.getElementById("search-results");
 
     let vehicles = [];
 
     // Загрузка данных из JSON
-    fetch('./assets/carsData.json')
+    fetch("./assets/carsData.json")
         .then(response => response.json())
         .then(data => {
             vehicles = data.vehicles;
-            console.log('Данные автомобилей загружены:', vehicles);
+            console.log("Данные автомобилей загружены:", vehicles);
         })
-        .catch(error => console.error('Ошибка загрузки JSON:', error));
+        .catch(error => console.error("Ошибка загрузки JSON:", error));
 
     // Функция для поиска автомобилей
     function searchCars(query) {
@@ -106,15 +106,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Отображение результатов
     function displayResults(cars) {
-        searchResults.innerHTML = ''; // Очистка результатов
+        searchResults.innerHTML = ""; // Очистка результатов
         if (cars.length === 0) {
-            searchResults.innerHTML = '<p>Автомобілі не знайдено.</p>';
+            searchResults.innerHTML = "<p>Автомобілі не знайдено.</p>";
             return;
         }
 
         cars.forEach(car => {
-            const carElement = document.createElement('div');
-            carElement.classList.add('car-item');
+            const carElement = document.createElement("div");
+            carElement.classList.add("car-item");
             carElement.innerHTML = `
                 <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
                 <p><strong>Модель:</strong> ${car.id}</p>
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Обработчик клика на кнопку поиска
-    searchButton.addEventListener('click', () => {
+    searchButton.addEventListener("click", () => {
         const query = searchInput.value.trim();
         searchCars(query);
     });
