@@ -90,31 +90,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Хэш пароля для "odessit2008"
-const VALID_HASHES = [
-    "c8d4eea9c081a092dc20e82d0fbc8ec5a4c0b1cbba4b06d4885a25bc633293cb",
-    "d5c1b409fcb58b1dc7c4e1d29de2182b5b8bb93d2e8d8efb9f4de670d5c7a437"
-];
+document.addEventListener("DOMContentLoaded", () => {
+    const storedHashes = [
+        "cdbd4e11c4bfcf81f9d05edaa2e7bb4c8ed54b8e5cd0cf2f111d8616c11db6e1",
+        "bcf34e68ef75960b68bcf15436b3e1dc023b20f174c3ec74ad8b05c2634e2499" 
+    ];
 
-function hashPassword(password) {
-    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(password)).then(buffer => {
-        return Array.from(new Uint8Array(buffer))
-            .map(byte => byte.toString(16).padStart(2, "0"))
-            .join("");
-    });
-}
-
-async function checkPassword() {
-    const passwordInput = document.getElementById("password-input").value;
-    const errorMessage = document.getElementById("error-message");
     const loginContainer = document.getElementById("login-container");
     const allcarsContainer = document.getElementById("allcars-container");
+    const errorMessage = document.getElementById("error-message");
 
-    const hashedPassword = await hashPassword(passwordInput);
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        return Array.from(new Uint8Array(hash))
+            .map(b => b.toString(16).padStart(2, "0"))
+            .join("");
+    }
 
-    if (VALID_HASHES.includes(hashedPassword)) {
-        loginContainer.style.display = "none";
-        allcarsContainer.style.display = "block";
+    window.checkPassword = async () => {
+        const inputPassword = document.getElementById("password-input").value;
+        const hashedPassword = await hashPassword(inputPassword);
+
+        if (storedHashes.includes(hashedPassword)) {
+            loginContainer.style.display = "none";
+            allcarsContainer.style.display = "block";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    };
+});
+
     } else {
         errorMessage.style.display = "block";
     }
