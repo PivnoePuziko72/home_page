@@ -178,3 +178,12 @@
     {"id": 6548, "name": "КрАЗ Спартан (СБУ)"}
   ]
 }
+
+fetch('./assets/carsData.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Выведет содержимое загруженного JSON в консоль
+        vehicles = data.vehicles; // Данные автомобилей
+    })
+    .catch(error => console.error('Ошибка при загрузке JSON:', error));
+
