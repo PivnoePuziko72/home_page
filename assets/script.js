@@ -2,10 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const hamburger = document.querySelector(".hamburger");
 
-    // Переключение видимости боковой панели
-    const hamburger = document.querySelector('.hamburger'); // Кнопка гамбургера
-    const sidebar = document.querySelector('.sidebar');     // Сайдбар
-
     hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('open'); // Переключаем класс open для отображения/скрытия
     });
