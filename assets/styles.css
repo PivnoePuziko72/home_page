@@ -171,33 +171,35 @@ body {
     margin: 0;
 }
 
-/* Стиль для выделенного текста */
+/* Основной стиль для выделенного текста */
 .highlight {
-  background-color: #8BC34A; /* Зеленая заливка */
-  border-radius: 12px; /* Полукруглые углы */
-  padding: 0 5px; /* Немного отступов вокруг текста */
-  position: relative; /* Для анимации бликов */
-  z-index: 2;
-  overflow: hidden; /* Убираем лишнее, если что-то выходит за пределы */
+  position: relative;
+  display: inline-block;
+  color: inherit;  /* Сохраняем исходный цвет текста */
+  background-color: rgba(0, 255, 0, 0.3); /* Легкая зеленая заливка */
+  border-radius: 10px;  /* Закругленные углы */
+  padding: 0 5px; /* Немного отступов для выделенного текста */
+  animation: slideHighlight 3s ease-in-out infinite; /* Анимация */
+  overflow: hidden;  /* Скрывает все, что выходит за пределы выделенного текста */
 }
 
-/* Анимация для эффекта бликов */
+/* Анимация для эффектного выделения текста */
 @keyframes slideHighlight {
   0% {
-    left: -30px;
-    margin-left: 0px;
+    background-color: rgba(0, 255, 0, 0.3); /* Начальный зеленый цвет */
+    transform: translateX(-30px);  /* Сдвиг текста влево */
   }
-  30% {
-    left: 110%;
-    margin-left: 80px;
+  50% {
+    background-color: rgba(0, 255, 0, 0.5); /* Усиленный зеленый цвет */
+    transform: translateX(30px);  /* Сдвиг текста вправо */
   }
   100% {
-    left: 110%;
-    margin-left: 80px;
+    background-color: rgba(0, 255, 0, 0.3); /* Вернуть в исходное состояние */
+    transform: translateX(-30px);  /* Возвращаемся в начальное положение */
   }
 }
 
-/* Псевдоэлемент для белого блика */
+/* Псевдоэлемент для белого блика внутри выделенного текста */
 .highlight:after {
   content: "";
   display: block;
@@ -209,9 +211,8 @@ body {
   position: absolute;
   left: -40px;
   top: 0;
-  z-index: 1;
+  z-index: -1;  /* Убираем блик ниже текста */
   transform: rotate(45deg);
-  transition: all 0.1s;
   animation-name: slideHighlight;
   animation-duration: 3s;
   animation-delay: 0.05s;
