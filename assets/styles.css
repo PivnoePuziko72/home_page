@@ -13,14 +13,14 @@ body {
     background-color: #c8e5fc; /* Цвет фона хедера */
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Ориентируем по левому краю */
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
-    padding-left: 40px; /* Отступ слева */
+    padding-left: 20px; /* Отступ слева */
 }
 
 /* Меню поиска в хедере */
@@ -65,7 +65,7 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -200px; /* Скрыт за пределами экрана */
+    left: 0; /* Сдвигаем влево */
     width: 200px;
     height: 100%;
     background-color: #0984e3; /* Цвет сайдбара */
