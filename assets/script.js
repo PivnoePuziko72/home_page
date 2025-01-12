@@ -129,4 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resultDiv.innerText = resultText;
     }
-});
+    
