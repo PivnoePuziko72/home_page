@@ -39,11 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
                    carId.includes(query.toLowerCase());
         });
 
-        displayResults(filteredCars); // Отображаем результаты поиска
+        displayResults(filteredCars, query); // Отображаем результаты поиска
+    }
+
+    // Функция для выделения найденных фрагментов
+    function highlightText(text, query) {
+        const regExp = new RegExp(`(${query})`, 'gi');  // Регулярное выражение для поиска фрагмента
+        return text.replace(regExp, '<span class="highlight">$1</span>'); // Заменяем совпадение на выделенный фрагмент
     }
 
     // Отображение результатов поиска
-    function displayResults(cars) {
+    function displayResults(cars, query) {
         searchResults.innerHTML = ""; // Очистка результатов
         if (cars.length === 0) {
             searchResults.innerHTML = "<p>Автомобілі не знайдено.</p>";
@@ -53,10 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
         cars.forEach(car => {
             const carElement = document.createElement("div");
             carElement.classList.add("car-item");
+
+            // Выделяем часть текста, которая совпадает с поисковым запросом
+            const highlightedName = highlightText(car.name, query);
+            const highlightedId = highlightText(car.id, query);
+
             carElement.innerHTML = `
                 <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
-                <p><strong>Модель:</strong> ${car.id}</p>
-                <p><strong>Назва:</strong> ${car.name}</p>
+                <p><strong>Модель:</strong> ${highlightedId}</p>
+                <p><strong>Назва:</strong> ${highlightedName}</p>
             `;
             searchResults.appendChild(carElement);
         });
