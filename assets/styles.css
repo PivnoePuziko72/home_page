@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
+    background-color: #74b9ff; /* Фон сайта всегда синий */
 }
 
 .hamburger {
@@ -64,7 +64,7 @@ body {
 .content {
     flex-grow: 1;
     padding: 20px;
-    background-color: #74b9ff; /* Убедитесь, что фон всегда синий */
+    background-color: #74b9ff; /* Фон сайта всегда синий */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,8 +84,7 @@ body {
     width: 100%;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 0; /* Убирает отступ сверху */
-    background-color: #f1f1f1; /* Установить фон меню */
+    background-color: #f1f1f1; /* Фон меню */
 }
 
 #search-container label {
@@ -121,7 +120,7 @@ body {
     margin: 20px auto;
     width: 90%;
     padding-top: 80px; /* Добавляет отступ сверху, чтобы результаты не закрывали меню поиска */
-    background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
+    background-color: #74b9ff; /* Фон сайта для результатов */
 }
 
 .car-item {
