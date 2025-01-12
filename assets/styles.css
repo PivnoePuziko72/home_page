@@ -1,251 +1,158 @@
-/* Общие стили для сайта */
+/* Основные стили для сайта */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: 'Comfortaa', Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #74b9ff; /* Фон сайта всегда синий */
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
-/* Хедер */
-.header {
-    background-color: #c8e5fc; /* Цвет фона хедера */
-    padding: 20px;
+/* Стили для гамбургера */
+.hamburger {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1; /* Слой ниже сайдбара */
-    padding-left: -540px; /* Отступ влево */
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Новая кнопка поиска */
+.hamburger:before,
+.hamburger:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open:before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open:after {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Стили для поиска */
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 #search-btn {
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Легкая тень */
-    border-radius: 8px;
-    border: none;
     padding: 10px 20px;
     font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     cursor: pointer;
-    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
+    transition: background-color 0.3s;
 }
 
 #search-btn:hover {
-    background-position: right center; /* Анимация при наведении */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Усиление тени при наведении */
-    transform: scale(1.05); /* Легкое увеличение */
+    background-color: #45a049;
 }
 
-/* Поле ввода текста для поиска */
-#search-input {
-    width: 300px; /* Ширина поля */
-    padding: 10px; /* Внутренний отступ */
-    margin-right: 10px; /* Отступ справа от кнопки */
-    border: 1px solid #ccc; /* Серая рамка */
-    border-radius: 8px; /* Закругленные углы */
-    font-size: 16px; /* Размер текста */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Эффект при фокусе на поле ввода */
-#search-input:focus {
-    border-color: #0984e3; /* Цвет рамки при фокусе (цвет сайдбара) */
-    box-shadow: 0 0 5px rgba(9, 132, 227, 0.5); /* Легкое свечение */
-    outline: none; /* Убираем стандартное выделение */
-}
-
-.hamburger {
-    position: fixed;
-    top: 25px;
-    left: 25px;
-    width: 50px;
-    height: 50px;
-    z-index: 10;
-    cursor: pointer;
-    transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
-}
-
-.hamburger:hover {
-    transform: scale(1.2); /* Увеличиваем размер при наведении */
-}
-
-/* Сайдбар, скрыт по умолчанию */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -200px; /* Скрыт за пределами экрана */
-    width: 200px;
-    height: 100%;
-    background-color: #0984e3; /* Цвет сайдбара */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: left 0.35s ease; /* Плавное открытие */
-    z-index: 2; /* Слой выше хедера */
-}
-
-/* Когда сайдбар открыт */
-.sidebar.open {
-    left: 0; /* Сдвигаем сайдбар в видимую область */
-}
-
-/* Стили для ссылок в сайдбаре */
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    margin:
-        10px 0;
-    padding: 10px 15px;
-    border-radius: 25px;
-    text-align: center;
-    width: 90%;
-    transition: background-color 0.3s ease, filter 0.3s ease;
-}
-
-/* Эффект наведения на ссылки */
-.sidebar a:hover {
-    background-color: #74b9ff;
-    filter: brightness(1.2);
-}
-
-/* Основной контент */
-.content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #74b9ff; /* Фон сайта всегда синий */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Результаты поиска */
 #search-results {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px auto;
-    width: 90%;
-    padding-top: 70px; /* Чтобы результаты не перекрывали меню поиска */
-    background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
+    margin-top: 20px;
 }
 
-/* Карточки автомобилей */
+/* Стили для результатов поиска */
 .car-item {
-    background-color: #eaeaea;
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px;
-    text-align: center;
-    z-index: 2
-    width: 300px;
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .car-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    float: left;
 }
 
-/* Футер */
-.footer {
-    background-color: #c8e5fc; /* Цвет фона футера, как у хедера */
-    color: black;
-    text-align: center;
-    padding: 5px 0;
-    font-size: 12px;
-    width: 100%;
+.car-item p {
+    margin: 5px 0;
 }
 
-.footer p {
-    margin: 0;
-}
-
-/* Основной стиль для выделенного текста */
+/* Стиль для выделенного текста */
 .highlight {
-  position: relative;
-  display: inline-block;
-  color: inherit;  /* Сохраняем исходный цвет текста */
-  background-color: rgba(0, 255, 0, 0.3); /* Легкая зеленая заливка */
-  border-radius: 10px;  /* Закругленные углы */
-  padding: 0 5px; /* Немного отступов для выделенного текста */
-  animation: slideHighlight 3s ease-in-out infinite; /* Анимация */
-  overflow: hidden;  /* Чтобы блики не выходили за пределы */
+    background-color: rgba(0, 255, 0, 0.3); /* Полупрозрачный зеленый фон */
+    border: 2px solid green; /* Зеленая обводка */
+    border-radius: 50%; /* Круглый контур */
+    padding: 0 4px; /* Немного отступа внутри для лучшего вида */
+    animation: snake-effect 1.5s infinite; /* Анимация "змейки" */
 }
 
-/* Анимация для эффектного выделения текста */
-@keyframes slideHighlight {
-  0% {
-    background-color: rgba(0, 255, 0, 0.3); /* Начальный зеленый цвет */
-    transform: translateX(-30px);  /* Сдвиг текста влево */
-  }
-  50% {
-    background-color: rgba(0, 255, 0, 0.5); /* Усиленный зеленый цвет */
-    transform: translateX(30px);  /* Сдвиг текста вправо */
-  }
-  100% {
-    background-color: rgba(0, 255, 0, 0.3); /* Вернуть в исходное состояние */
-    transform: translateX(-30px);  /* Возвращаемся в начальное положение */
-  }
+/* Анимация для создания эффекта обводки змейкой */
+@keyframes snake-effect {
+    0% {
+        transform: scale(1); /* Начальный размер */
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2); /* Увеличиваем размер для эффекта "змейки" */
+        opacity: 0.6; /* Чуть уменьшаем прозрачность */
+    }
+    100% {
+        transform: scale(1); /* Возвращаем размер к исходному */
+        opacity: 1; /* Возвращаем прозрачность */
+    }
 }
 
-/* Псевдоэлемент для белого блика */
-.highlight:after {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 100%;
-  margin-left: 60px;
-  background: #fff;
-  opacity: 0.5;
-  position: absolute;
-  left: -40px;
-  top: 0;
-  z-index: 2;  /* Блик будет над текстом */
-  transform: rotate(45deg);
-  animation-name: slideHighlight;
-  animation-duration: 3s;
-  animation-delay: 0.05s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+/* Стили для сайдбара */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease;
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
-/* Для контейнера результатов поиска */
-#search-results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px auto;
-  width: 90%;
-  padding-top: 70px; /* Чтобы результаты не перекрывали меню поиска */
-  background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
+.sidebar.open {
+    left: 0;
 }
 
-/* Для карточек с машинами */
-.car-item {
-  background-color: #eaeaea;
-  border: 2px solid white;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px;
-  text-align: center;
-  width: 30%; /* 3 карточки на строку */
-  box-sizing: border-box; /* Для точного вычисления ширины */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
 }
 
-.car-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+.sidebar a:hover {
+    background-color: #444;
+}
+
+.sidebar .logo {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#search-results p {
+    font-size: 18px;
+}
+
+/* Дополнительные стили для контента */
+.container {
+    margin-left: 250px;
+    padding: 20px;
 }
