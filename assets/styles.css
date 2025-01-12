@@ -6,29 +6,21 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color: #74b9ff; /* Фон сайта всегда синий */
-}/* Общие стили для сайта */
-body {
-    margin: 0;
-    font-family: 'Comfortaa', Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #74b9ff; /* Фон сайта всегда синий */
 }
 
 /* Хедер */
 .header {
     background-color: #c8e5fc; /* Цвет фона хедера */
-    padding: 20px;
+    padding: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-left: 100px; /* Отступ слева */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
+    padding-left: 70px; /* Отступ слева */
 }
 
 /* Меню поиска в хедере */
@@ -74,153 +66,6 @@ body {
     position: fixed;
     top: 0;
     left: -200px; /* Скрыт за пределами экрана */
-    width: 200px;
-    height: 100%;
-    background-color: #0984e3; /* Цвет сайдбара */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    transition: left 0.3s ease; /* Плавное открытие */
-    z-index: 2; /* Слой выше хедера */
-}
-
-/* Когда сайдбар открыт */
-.sidebar.open {
-    left: 0; /* Сдвигаем сайдбар в видимую область */
-}
-
-/* Стили для ссылок в сайдбаре */
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    margin: 10px 0;
-    padding: 10px 15px;
-    border-radius: 25px;
-    text-align: center;
-    width: 90%;
-    transition: background-color 0.3s ease, filter 0.3s ease;
-}
-
-/* Эффект наведения на ссылки */
-.sidebar a:hover {
-    background-color: #74b9ff;
-    filter: brightness(1.2);
-}
-
-/* Основной контент */
-.content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #74b9ff; /* Фон сайта всегда синий */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Результаты поиска */
-#search-results {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px auto;
-    width: 90%;
-    padding-top: 80px; /* Чтобы результаты не перекрывали меню поиска */
-    background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
-}
-
-/* Карточки автомобилей */
-.car-item {
-    background-color: #eaeaea;
-    border: 2px solid white;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.car-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-/* Футер */
-.footer {
-    background-color: #c8e5fc; /* Цвет фона футера, как у хедера */
-    color: black;
-    text-align: center;
-    padding: 5px 0;
-    font-size: 12px;
-    width: 100%;
-}
-
-.footer p {
-    margin: 0;
-}
-
-
-/* Хедер */
-.header {
-    background-color: #c8e5fc; /* Цвет фона хедера */
-    padding: 20px;
-    display: flex;
-    justify-content: flex-start; /* Ориентируем по левому краю */
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1; /* Слой ниже сайдбара */
-    padding-left: 40px; /* Отступ слева */
-}
-
-/* Меню поиска в хедере */
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-container input {
-    padding: 8px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 300px;
-}
-
-.search-container button {
-    padding: 8px 15px;
-    background-color: #0984e3; /* Цвет кнопки по аналогии с сайдбаром */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #74b9ff; /* Цвет при наведении */
-}
-
-/* Кнопка гамбургера */
-.hamburger {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* Сайдбар, скрыт по умолчанию */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 200px;
     height: 100%;
     background-color: #0984e3; /* Цвет сайдбара */
