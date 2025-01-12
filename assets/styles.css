@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
-    padding-left: 50px; /* Отступ слева */
+    padding-left: 22px; /* Отступ слева */
 }
 
 /* Новая кнопка поиска */
@@ -88,6 +88,14 @@ body {
     padding-top: 10px;
     transition: left 0.35s ease; /* Плавное открытие */
     z-index: 2; /* Слой выше хедера */
+}
+
+.sidebar img.logo {
+    align-self: flex-start; /* Логотип слева */
+    margin-left: 10px; /* Отступ слева */
+    margin-bottom: 20px; /* Отступ снизу */
+    max-width: 100%; /* Убедитесь, что логотип не выходит за границы */
+    height: auto;
 }
 
 /* Когда сайдбар открыт */
