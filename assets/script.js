@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.getElementById("search-btn");
     const searchResults = document.getElementById("search-results");
 
-    let vehicles = [];
+    let vehicles = []; // Переменная для хранения данных автомобилей
 
     // Загрузка данных из JSON
     fetch("./assets/carsData.json")
         .then(response => response.json())
         .then(data => {
-            vehicles = data.vehicles;
+            vehicles = data.vehicles; // Сохранение автомобилей в массив
             console.log("Данные автомобилей загружены:", vehicles);
         })
         .catch(error => console.error("Ошибка загрузки JSON:", error));
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         displayResults(filteredCars);
     }
 
-    // Отображение результатов
+    // Отображение результатов поиска
     function displayResults(cars) {
         searchResults.innerHTML = ""; // Очистка результатов
         if (cars.length === 0) {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         searchCars(query);
     });
 
-    // Существующие функции для депозита и крафта
+    // Существующие функции для депозита
     function calculateDeposit() {
         const amount = parseFloat(document.getElementById("amount").value);
         const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
     }
 
+    // Существующая функция для крафта
     function calculateCraft() {
         const recipes = {
             glintwein: {
@@ -129,4 +130,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resultDiv.innerText = resultText;
     }
-    
+});
