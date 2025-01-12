@@ -177,7 +177,7 @@ body {
   position: relative; /* Для анимации */
   display: inline-block; /* Важное для работы с анимацией */
   overflow: hidden; /* Убираем лишнее, если что-то выходит за пределы */
-  animation: snake 3s infinite ease-in-out; /* Анимация змейки */
+  animation: none
 }
 
 /* Анимация для эффекта змейки */
