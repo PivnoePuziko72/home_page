@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
+    background-color: #74b9ff; /* Устанавливаем фон сайта */
 }
 
 .hamburger {
@@ -77,13 +77,12 @@ body {
     align-items: center;
     padding: 20px;
     background-color: #f1f1f1;
-    position: fixed; /* Закрепить меню поиска */
+    position: sticky; /* Сделаем меню поиска фиксированным */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 0; /* Убирает отступ сверху */
 }
 
 #search-container label {
@@ -116,12 +115,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px auto;
-    width: 90%;
-    padding-top: 80px; /* Добавляет отступ сверху, чтобы результаты не закрывали меню поиска */
+    margin-top: 20px; /* Это вместо отступа, чтобы избежать эффекта сдвига */
+    padding-top: 0; /* Убираем отступ сверху */
+    width: 100%;
+    box-sizing: border-box;
     background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
 }
 
+/* Элементы в поиске */
 .car-item {
     background-color: #eaeaea;
     border: 2px solid white;
