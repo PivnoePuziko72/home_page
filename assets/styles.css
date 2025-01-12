@@ -23,31 +23,25 @@ body {
     padding-left: 70px; /* Отступ слева */
 }
 
-/* Меню поиска в хедере */
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-container input {
-    padding: 8px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 300px;
-}
-
-.search-container button {
-    padding: 8px 15px;
-    background-color: #0984e3; /* Цвет кнопки по аналогии с сайдбаром */
+/* Новая кнопка поиска */
+#search-btn {
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    border-radius: 8px;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
 }
 
-.search-container button:hover {
-    background-color: #74b9ff; /* Цвет при наведении */
+#search-btn:hover {
+    background-position: right center; /* Анимация при наведении */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Усиление тени при наведении */
+    transform: scale(1.05); /* Легкое увеличение */
 }
 
 /* Кнопка гамбургера */
@@ -72,7 +66,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     padding-top: 10px;
     transition: left 0.35s ease; /* Плавное открытие */
     z-index: 2; /* Слой выше хедера */
@@ -118,7 +112,7 @@ body {
     justify-content: center;
     margin: 20px auto;
     width: 90%;
-    padding-top: 80px; /* Чтобы результаты не перекрывали меню поиска */
+    padding-top: 70px; /* Чтобы результаты не перекрывали меню поиска */
     background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
 }
 
