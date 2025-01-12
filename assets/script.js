@@ -5,10 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Переключение видимости боковой панели
     hamburger.addEventListener("click", () => {
         sidebar.classList.toggle("hidden");
+        document.querySelector(".content").classList.toggle("shifted");
     });
 });
 
-// Существующие функции
+// Существующие функции для депозита и крафта (не изменялись)
+
 function calculateDeposit() {
     const amount = parseFloat(document.getElementById("amount").value);
     const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
@@ -53,7 +55,7 @@ function calculateCraft() {
             name: "Подарунок",
             ingredients: {
                 "Гілка сосни": 15,
-                "Льодяник": 5,
+                "Льодяник": 3,
                 "Подарунковий папір": 3,
                 "Апельсин": 2,
                 "Червона фарба": 3
@@ -79,43 +81,7 @@ function calculateCraft() {
     resultDiv.innerText = resultText;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const sidebar = document.querySelector(".sidebar");
-    const hamburger = document.querySelector(".hamburger");
-
-    // Переключение видимости боковой панели
-    hamburger.addEventListener("click", () => {
-        sidebar.classList.toggle("hidden");
-        document.querySelector(".content").classList.toggle("shifted");
-    });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const sidebar = document.querySelector(".sidebar");
-    const hamburger = document.querySelector(".hamburger");
-
-    // Логика работы кнопки-гамбургера
-    hamburger.addEventListener("click", () => {
-        sidebar.classList.toggle("hidden");
-        document.querySelector(".content").classList.toggle("shifted");
-    });
-});
-
-// Список паролей
-const validPasswords = ["odessit2008", "admins05uagta4ever"];
-
-// Проверка пароля
-function checkPassword() {
-    const passwordInput = document.getElementById("password-input").value;
-    const errorMessage = document.getElementById("error-message");
-    const loginContainer = document.getElementById("login-container");
-    const allCarsContainer = document.getElementById("allcars-container");
-
-    if (validPasswords.includes(passwordInput)) {
-        loginContainer.style.display = "none";
-        allCarsContainer.style.display = "block";
-    } else {
-
+// Логика поиска автомобилей
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-btn');
@@ -173,3 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value;
         searchCars(query);
     });
+});
