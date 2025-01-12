@@ -79,61 +79,54 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    // Переменная для хранения данных из JSON
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-btn');
+    const searchResults = document.getElementById('search-results');
+
     let vehicles = [];
 
-    // Загружаем данные из JSON
+    // Загрузка данных из JSON
     fetch('./assets/carsData.json')
         .then(response => response.json())
         .then(data => {
-            vehicles = data.vehicles; // Данные автомобилей
+            vehicles = data.vehicles;
+            console.log('Данные автомобилей загружены:', vehicles);
         })
-        .catch(error => console.error('Ошибка при загрузке JSON:', error));
+        .catch(error => console.error('Ошибка загрузки JSON:', error));
 
-    // Функция поиска автомобилей
+    // Функция для поиска автомобилей
     function searchCars(query) {
         const filteredCars = vehicles.filter(car =>
-            car.name.toLowerCase().includes(query.toLowerCase())
+            car.name.toLowerCase().includes(query.toLowerCase()) || 
+            car.id.toLowerCase().includes(query.toLowerCase())
         );
         displayResults(filteredCars);
     }
 
-    // Отображение результатов поиска
+    // Отображение результатов
     function displayResults(cars) {
-        const searchResults = document.getElementById('search-results');
-        searchResults.innerHTML = ''; // Очищаем текущие результаты
+        searchResults.innerHTML = ''; // Очистка результатов
         if (cars.length === 0) {
             searchResults.innerHTML = '<p>Автомобілі не знайдено.</p>';
             return;
         }
 
-        // Разбиваем автомобили на ряды по 3 штуки
-        const rows = Math.ceil(cars.length / 3);
-        for (let i = 0; i < rows; i++) {
-            const row = document.createElement('div');
-            row.classList.add('car-row'); // Добавляем класс для ряда
-
-            // Добавляем автомобили в текущий ряд
-            for (let j = i * 3; j < (i + 1) * 3 && j < cars.length; j++) {
-                const car = cars[j];
-                const carElement = document.createElement('div');
-                carElement.classList.add('search-item');
-                carElement.innerHTML = `
-                    <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}" /> <!-- Путь к изображению -->
-                    <p>Модель: ${car.id}</p>
-                    <p>${car.name}</p>
-                `;
-                row.appendChild(carElement);
-            }
-
-            searchResults.appendChild(row); // Добавляем ряд в общий контейнер
-        }
+        cars.forEach(car => {
+            const carElement = document.createElement('div');
+            carElement.classList.add('car-item');
+            carElement.innerHTML = `
+                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
+                <p><strong>Модель:</strong> ${car.id}</p>
+                <p><strong>Название:</strong> ${car.name}</p>
+            `;
+            searchResults.appendChild(carElement);
+        });
     }
 
-    // Поиск при нажатии на кнопку
-    const searchButton = document.getElementById('search-btn');
+    // Обработчик клика на кнопку поиска
     searchButton.addEventListener('click', () => {
-        const query = document.getElementById('search-input').value;
+        const query = searchInput.value.trim();
         searchCars(query);
     });
 });
