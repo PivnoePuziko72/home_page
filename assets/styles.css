@@ -78,7 +78,7 @@ body {
     align-items: center;
     padding: 20px;
     background-color: #f1f1f1;
-    position: sticky; /* Закрепляем вверху */
+    position: fixed; /* Закрепляем в верхней части */
     top: 0;
     left: 0;
     width: 100%;
@@ -115,9 +115,10 @@ body {
 #search-results {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px; /* Отступ снизу меню поиска */
-    width: 90%;
+    justify-content: space-between; /* Распределяем элементы по всему доступному пространству */
+    margin-top: 120px; /* Отступ снизу меню поиска, чтобы результаты не перекрывали меню */
+    padding: 10px;
+    width: calc(100% - 220px); /* Ширина с учетом сайдбара */
     box-sizing: border-box;
     background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
 }
