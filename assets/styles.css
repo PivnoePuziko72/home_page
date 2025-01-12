@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
-    padding-left: 50px; /* Отступ слева */
+    padding-left: 350px; /* Отступ слева */
 }
 
 /* Новая кнопка поиска */
@@ -84,7 +84,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 10px;
     padding-left: 10px;
     transition: left 0.35s ease; /* Плавное открытие */
