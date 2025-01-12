@@ -129,4 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
         const query = searchInput.value.trim();
         searchCars(query);
     });
-});
+}); 
