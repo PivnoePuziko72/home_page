@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Функция для выделения найденных фрагментов
     function highlightText(text, query) {
+        if (typeof text !== 'string') {
+            return text; // Если text не строка, возвращаем его без изменений
+        }
         const regExp = new RegExp(`(${query})`, 'gi');  // Регулярное выражение для поиска фрагмента
         return text.replace(regExp, '<span class="highlight">$1</span>'); // Заменяем совпадение на выделенный фрагмент
     }
@@ -60,9 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const carElement = document.createElement("div");
             carElement.classList.add("car-item");
 
-            // Выделяем часть текста, которая совпадает с поисковым запросом
-            const highlightedName = highlightText(car.name, query);
-            const highlightedId = highlightText(car.id, query);
+            // Если запрос не пустой, то выделяем найденные фрагменты
+            const highlightedName = query ? highlightText(car.name, query) : car.name;
+            const highlightedId = query ? highlightText(car.id, query) : car.id;
 
             carElement.innerHTML = `
                 <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
@@ -165,6 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const maxMove = 20;
             const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
             const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
+
+            hamburger.style.left = `${20 + moveX}px`; // Начальная позиция 20px от левого края
+            hamburger.style.top = `${20 + moveY}px`;  // Начальная позиция 20px от верхнего края
         }
     });
 });
