@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Устанавливаем начальное положение гамбургера ближе к верхнему левому углу
     hamburger.style.left = "20px";
     hamburger.style.top = "20px";
+    hamburger.style.position = "absolute"; // Обеспечиваем абсолютное позиционирование
 
     hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('open'); // Переключаем класс open для отображения/скрытия
