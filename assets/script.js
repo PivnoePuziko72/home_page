@@ -116,7 +116,7 @@ function checkPassword() {
         allCarsContainer.style.display = "block";
     } else {
 
-import carsData from './carsData.json';
+import vehicles from './carsData.json';
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar');
 
     // Список автомобилей (данные из JSON)
-    const cars = carsData;
+    const cars = vehicles;
 
     // Функция поиска автомобилей
     function searchCars(query) {
