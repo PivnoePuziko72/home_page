@@ -122,16 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-btn');
     const searchResults = document.getElementById('search-results');
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('.sidebar');
 
-    // Массив автомобилей (для примера)
-    const cars = [
-        { name: 'Tesla Model S', model: 'TeslaS', image: 'images/tesla_model_s.jpg' },
-        { name: 'BMW 3 Series', model: 'BMW3', image: 'images/bmw_3_series.jpg' },
-        { name: 'Audi A4', model: 'AudiA4', image: 'images/audi_a4.jpg' },
-        // Добавьте другие автомобили
-    ];
+    // Список автомобилей (данные из JSON)
+    const cars = carsData;
 
-    // Функция поиска
+    // Функция поиска автомобилей
     function searchCars(query) {
         const filteredCars = cars.filter(car =>
             car.name.toLowerCase().includes(query.toLowerCase())
@@ -139,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayResults(filteredCars);
     }
 
-    // Отображение результатов
+    // Отображение результатов поиска
     function displayResults(cars) {
         searchResults.innerHTML = '';
         if (cars.length === 0) {
@@ -158,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Поиск по нажатию на кнопку
+    // Поиск при нажатии на кнопку
     searchButton.addEventListener('click', () => {
         const query = searchInput.value;
         searchCars(query);
@@ -166,6 +163,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Поиск при изменении ввода
     searchInput.addEventListener('input', () => {
+        const query = searchInput.value;
+        searchCars(query);
+    });
+
+    // Открытие/закрытие сайдбара при клике на гамбургер
+    hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+});
+
         const query = searchInput.value;
         searchCars(query);
     });
