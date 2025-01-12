@@ -13,14 +13,14 @@ body {
     background-color: #c8e5fc; /* Цвет фона хедера */
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-left: 40px; /* Отступ слева */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
+    padding-left: 40px; /* Отступ слева */
 }
 
 /* Меню поиска в хедере */
