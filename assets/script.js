@@ -115,6 +115,43 @@ function checkPassword() {
         loginContainer.style.display = "none";
         allCarsContainer.style.display = "block";
     } else {
+
+import carsData from './carsData.json';
+
+const searchInput = document.querySelector('#searchInput');
+const resultsContainer = document.querySelector('#resultsContainer');
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    const filteredCars = carsData.filter(car => {
+        return car.name.toLowerCase().includes(query) || car.model.includes(query);
+    });
+
+    displayResults(filteredCars);
+});
+
+function displayResults(cars) {
+    resultsContainer.innerHTML = '';
+    cars.forEach(car => {
+        const carElement = document.createElement('div');
+        carElement.classList.add('car');
+
+        const carImage = document.createElement('img');
+        carImage.src = `assets/carsmodels/${car.model}.png`;
+        carElement.appendChild(carImage);
+
+        const carDetails = document.createElement('div');
+        carDetails.classList.add('car-details');
+        carDetails.innerHTML = `
+            <p>Model: ${car.model}</p>
+            <p>Name: ${car.name}</p>
+        `;
+        carElement.appendChild(carDetails);
+
+        resultsContainer.appendChild(carElement);
+    });
+}
+
         errorMessage.style.display = "block";
         setTimeout(() => (errorMessage.style.display = "none"), 3000);
     }
