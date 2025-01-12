@@ -180,7 +180,7 @@ body {
   border-radius: 10px;  /* Закругленные углы */
   padding: 0 5px; /* Немного отступов для выделенного текста */
   animation: slideHighlight 3s ease-in-out infinite; /* Анимация */
-  overflow: hidden;  /* Скрывает все, что выходит за пределы выделенного текста */
+  overflow: hidden;  /* Чтобы блики не выходили за пределы */
 }
 
 /* Анимация для эффектного выделения текста */
@@ -199,7 +199,7 @@ body {
   }
 }
 
-/* Псевдоэлемент для белого блика внутри выделенного текста */
+/* Псевдоэлемент для белого блика */
 .highlight:after {
   content: "";
   display: block;
@@ -211,11 +211,41 @@ body {
   position: absolute;
   left: -40px;
   top: 0;
-  z-index: -1;  /* Убираем блик ниже текста */
+  z-index: 2;  /* Блик будет над текстом */
   transform: rotate(45deg);
   animation-name: slideHighlight;
   animation-duration: 3s;
   animation-delay: 0.05s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+/* Для контейнера результатов поиска */
+#search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
+  width: 90%;
+  padding-top: 70px; /* Чтобы результаты не перекрывали меню поиска */
+  background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
+}
+
+/* Для карточек с машинами */
+.car-item {
+  background-color: #eaeaea;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  width: 30%; /* 3 карточки на строку */
+  box-sizing: border-box; /* Для точного вычисления ширины */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.car-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
