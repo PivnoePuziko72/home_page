@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Список автомобілів</title>
     <link rel="stylesheet" href="assets/styles.css">
-    <script type="module" src="assets/script.js" defer></script>
+    <!-- Значок сайта -->
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
 </head>
 <body>
     <!-- Кнопка-гамбургер -->
@@ -18,20 +19,19 @@
         <a href="index.html">Головна</a>
         <a href="deposit.html">Калькулятор депозиту</a>
         <a href="craft.html">Калькулятор крафта</a>
-        <a href="allcars.html">Автомобілі</a> <!-- Ссылка на текущую страницу -->
+        <a href="allcars.html">Автомобілі</a> <!-- Добавляем страницу в меню -->
     </div>
 
     <!-- Контент -->
     <div class="content">
-        <h1>Список автомобілів</h1>
-        
-        <!-- Поиск -->
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Пошук автомобіля...">
+        <div class="container">
+            <h1>Список автомобілів</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Пошук автомобіля...">
+                <button id="search-btn">Пошук</button> <!-- Кнопка поиска -->
+            </div>
+            <div id="search-results" class="search-results"></div>
         </div>
-
-        <!-- Результаты поиска -->
-        <div class="search-results" id="resultsContainer"></div>
     </div>
 
     <script src="assets/script.js"></script>
