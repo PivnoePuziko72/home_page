@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список автомобілів</title>
+    <title>Всі автомобілі</title>
     <link rel="stylesheet" href="assets/styles.css">
     <!-- Значок сайта -->
     <link rel="icon" type="image/x-icon" href="images/logo.ico">
 </head>
 <body>
     <!-- Кнопка-гамбургер -->
-    <img src="images/logo.ico" alt="Логотип" class="hamburger">
+    <img src="images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
 
     <!-- Сайдбар -->
     <div class="sidebar">
@@ -19,21 +19,21 @@
         <a href="index.html">Головна</a>
         <a href="deposit.html">Калькулятор депозиту</a>
         <a href="craft.html">Калькулятор крафта</a>
-        <a href="allcars.html">Автомобілі</a> <!-- Добавляем страницу в меню -->
+        <a href="allcars.html">Всі автомобілі</a>
     </div>
 
     <!-- Контент -->
     <div class="content">
         <div class="container">
-            <h1>Список автомобілів</h1>
+            <h1>Автомобілі</h1>
             <div class="search-container">
-                <input type="text" id="search-input" placeholder="Пошук автомобіля...">
-                <button id="search-btn">Пошук</button> <!-- Кнопка поиска -->
+                <input type="text" id="search-input" placeholder="Шукати автомобіль...">
+                <button id="search-btn">Пошук</button>
             </div>
             <div id="search-results" class="search-results"></div>
         </div>
     </div>
 
-    <script src="assets/script.js"></script>
+    <script type="module" src="assets/script.js"></script>
 </body>
 </html>
