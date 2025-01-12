@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const hamburger = document.querySelector(".hamburger");
-    const header = document.querySelector("header");  // Предполагаем, что у нас есть тег <header> для хедера
 
-    // Устанавливаем начальное положение гамбургера внутри хедера
+    // Устанавливаем начальное положение гамбургера
     hamburger.style.position = "fixed";  // Используем fixed, чтобы гамбургер не листался при прокрутке
     hamburger.style.left = "20px";
     hamburger.style.top = "20px";
@@ -141,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    // JavaScript для "убегающего" гамбургера, теперь фиксированного на экране
+    // JavaScript для "убегающего" гамбургера
     hamburger.addEventListener("mousemove", (event) => {
         const rect = hamburger.getBoundingClientRect(); // Координаты гамбургера
         const offsetX = event.clientX - rect.left - rect.width / 2; // Смещение по X
@@ -155,9 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const maxMove = 20;
             const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
             const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
-
-            hamburger.style.left = `${20 + moveX}px`; // Начальная позиция 20px от левого края
-            hamburger.style.top = `${20 + moveY}px`;  // Начальная позиция 20px от верхнего края
         }
     });
 });
