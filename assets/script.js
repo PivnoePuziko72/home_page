@@ -173,9 +173,3 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value;
         searchCars(query);
     });
-
-    // Открытие/закрытие сайдбара при клике на гамбургер
-    hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-    });
-});
