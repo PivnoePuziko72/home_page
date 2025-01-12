@@ -169,3 +169,9 @@ body {
 .footer p {
     margin: 0;
 }
+
+.highlight {
+    background-color: rgba(0, 255, 0, 0.3); /* Легкая зеленая подсветка */
+    border-radius: 10px;  /* Полукруглые углы */
+    padding: 2px 5px;  /* Немного отступов */
+}
