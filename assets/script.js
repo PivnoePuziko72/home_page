@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    // JavaScript для "убегающего" гамбургера
+    // JavaScript для "убегающего" гамбургера (в пределах 3 пикселей)
     hamburger.addEventListener("mousemove", (event) => {
         const rect = hamburger.getBoundingClientRect(); // Координаты кнопки
         const offsetX = event.clientX - rect.left - rect.width / 2; // Смещение по X
@@ -143,13 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Расстояние между мышью и центром кнопки
         const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
 
-        if (distance < 100) { // Если курсор приближается
-            // Новая случайная позиция в пределах окна
-            const newX = Math.random() * (window.innerWidth - rect.width);
-            const newY = Math.random() * (window.innerHeight - rect.height);
+        if (distance < 30) { // Если курсор приближается на 30px
+            // Перемещаем кнопку на небольшое расстояние в пределах 3 пикселей
+            const moveX = Math.random() * 6 - 3; // Случайное смещение от -3 до 3 по X
+            const moveY = Math.random() * 6 - 3; // Случайное смещение от -3 до 3 по Y
 
-            hamburger.style.left = `${newX}px`;
-            hamburger.style.top = `${newY}px`;
+            hamburger.style.transform = `translate(${moveX}px, ${moveY}px)`; // Применяем смещение
         }
     });
 });
