@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
+    background-color: #74b9ff; /* Убедитесь, что фон всегда синий */
 }
 
 .hamburger {
@@ -73,14 +73,13 @@ body {
 /* Меню поиска */
 #search-container {
     display: flex;
-    justify-content: center; /* Центрируем меню поиска */
+    justify-content: center; /* Центрирование меню поиска по горизонтали */
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
     background-color: #f1f1f1;
-    position: fixed; /* Закрепляем меню поиска */
+    position: sticky; /* Закрепляем меню поиска сверху */
     top: 0;
-    left: 50%;
-    transform: translateX(-50%); /* Центрируем по горизонтали */
+    left: 0;
     width: 100%;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -116,11 +115,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 80px; /* Добавлен небольшой отступ от меню поиска */
-    padding-left: 20px; /* Отступ слева, чтобы избежать конфликта с сайдбаром */
-    width: calc(100% - 220px); /* Уменьшаем ширину на 220px (ширина сайдбара) */
-    padding-right: 20px; /* Добавляем отступ справа, чтобы не было конфликтов с сайдбаром */
+    margin: 20px auto;
+    padding-top: 0; /* Убираем отступ сверху */
     background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
+    padding-left: 20px; /* Отступ слева для предотвращения конфликта с сайдбаром */
+    padding-right: 20px; /* Отступ справа */
+    width: 100%;
 }
 
 .car-item {
