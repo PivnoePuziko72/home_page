@@ -20,7 +20,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1; /* Слой ниже сайдбара */
 }
 
 /* Меню поиска в хедере */
@@ -75,21 +75,12 @@ body {
     align-items: center;
     padding-top: 10px;
     transition: left 0.3s ease; /* Плавное открытие */
+    z-index: 2; /* Слой выше хедера */
 }
 
 /* Когда сайдбар открыт */
 .sidebar.open {
     left: 0; /* Сдвигаем сайдбар в видимую область */
-}
-
-/* Логотип сайдбара */
-.sidebar-logo {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
 }
 
 /* Стили для ссылок в сайдбаре */
@@ -151,10 +142,11 @@ body {
 
 /* Футер */
 .footer {
-    background-color: #333;
-    color: white;
+    background-color: #c8e5fc; /* Цвет фона футера, как у хедера */
+    color: black;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
+    font-size: 12px;
     width: 100%;
 }
 
