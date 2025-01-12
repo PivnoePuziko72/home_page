@@ -102,7 +102,8 @@ body {
 .sidebar a {
     color: white;
     text-decoration: none;
-    margin: 10px 0;
+    margin:
+        10px 0;
     padding: 10px 15px;
     border-radius: 25px;
     text-align: center;
@@ -172,46 +173,26 @@ body {
 /* Стиль для выделенного текста */
 .highlight {
   background-color: #8BC34A; /* Зеленая заливка */
-  border-radius: 12px; /* Полукруглые углы */
+  border-radius: 50%; /* Круглый контур */
   padding: 0 5px; /* Немного отступов вокруг текста */
-  position: relative; /* Для анимации бликов */
+  position: relative; /* Для анимации */
+  display: inline-block; /* Важное для работы с анимацией */
   overflow: hidden; /* Убираем лишнее, если что-то выходит за пределы */
+  animation: snake 3s infinite ease-in-out; /* Анимация змейки */
 }
 
-/* Анимация для эффекта бликов */
-@keyframes slideHighlight {
+/* Анимация для эффекта змейки */
+@keyframes snake {
   0% {
-    left: -30px;
-    margin-left: 0px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 0px rgba(0, 255, 0, 1);
   }
-  30% {
-    left: 110%;
-    margin-left: 80px;
+  50% {
+    border: 2px solid #8BC34A;
+    box-shadow: 0 0 15px 5px rgba(0, 255, 0, 1);
   }
   100% {
-    left: 110%;
-    margin-left: 80px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 0px rgba(0, 255, 0, 1);
   }
-}
-
-/* Псевдоэлемент для белого блика */
-.highlight:after {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 100%;
-  margin-left: 60px;
-  background: #fff;
-  opacity: 0.5;
-  position: absolute;
-  left: -40px;
-  top: 0;
-  z-index: 1;
-  transform: rotate(45deg);
-  transition: all 0.1s;
-  animation-name: slideHighlight;
-  animation-duration: 3s;
-  animation-delay: 0.05s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
 }
