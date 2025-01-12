@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const hamburger = document.querySelector(".hamburger");
+    const header = document.querySelector("header");  // Предполагаем, что у нас есть тег <header> для хедера
 
-    // Устанавливаем начальное положение гамбургера ближе к верхнему левому углу
+    // Устанавливаем начальное положение гамбургера внутри хедера
+    hamburger.style.position = "absolute"; // Позиционируем относительно хедера
     hamburger.style.left = "20px";
     hamburger.style.top = "20px";
-    hamburger.style.position = "absolute"; // Обеспечиваем абсолютное позиционирование
 
     hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('open'); // Переключаем класс open для отображения/скрытия
@@ -139,11 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    // JavaScript для "убегающего" гамбургера
+    // JavaScript для "убегающего" гамбургера, теперь привязанный к хедеру
     hamburger.addEventListener("mousemove", (event) => {
-        const rect = hamburger.getBoundingClientRect(); // Координаты кнопки
-        const offsetX = event.clientX - rect.left - rect.width / 2; // Смещение по X
-        const offsetY = event.clientY - rect.top - rect.height / 2; // Смещение по Y
+        const rect = header.getBoundingClientRect(); // Координаты хедера
+        const offsetX = event.clientX - rect.left - hamburger.offsetWidth / 2; // Смещение по X относительно хедера
+        const offsetY = event.clientY - rect.top - hamburger.offsetHeight / 2; // Смещение по Y относительно хедера
 
         // Расстояние между мышью и центром кнопки
         const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
@@ -154,8 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
             const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
 
-            hamburger.style.left = `${20 + moveX}px`; // Начальная позиция 20px от левого края
-            hamburger.style.top = `${20 + moveY}px`;  // Начальная позиция 20px от верхнего края
+            hamburger.style.left = `${20 + moveX}px`; // Начальная позиция 20px от левого края хедера
+            hamburger.style.top = `${20 + moveY}px`;  // Начальная позиция 20px от верхнего края хедера
         }
     });
 });
