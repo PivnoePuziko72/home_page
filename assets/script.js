@@ -91,38 +91,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const storedHashes = [
-        "cdbd4e11c4bfcf81f9d05edaa2e7bb4c8ed54b8e5cd0cf2f111d8616c11db6e1",
-        "bcf34e68ef75960b68bcf15436b3e1dc023b20f174c3ec74ad8b05c2634e2499" 
-    ];
+    const sidebar = document.querySelector(".sidebar");
+    const hamburger = document.querySelector(".hamburger");
 
-    const loginContainer = document.getElementById("login-container");
-    const allcarsContainer = document.getElementById("allcars-container");
-    const errorMessage = document.getElementById("error-message");
-
-    async function hashPassword(password) {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(password);
-        const hash = await crypto.subtle.digest("SHA-256", data);
-        return Array.from(new Uint8Array(hash))
-            .map(b => b.toString(16).padStart(2, "0"))
-            .join("");
-    }
-
-    window.checkPassword = async () => {
-        const inputPassword = document.getElementById("password-input").value;
-        const hashedPassword = await hashPassword(inputPassword);
-
-        if (storedHashes.includes(hashedPassword)) {
-            loginContainer.style.display = "none";
-            allcarsContainer.style.display = "block";
-        } else {
-            errorMessage.style.display = "block";
-        }
-    };
+    // Логика работы кнопки-гамбургера
+    hamburger.addEventListener("click", () => {
+        sidebar.classList.toggle("hidden");
+        document.querySelector(".content").classList.toggle("shifted");
+    });
 });
 
+// Список паролей
+const validPasswords = ["odessit2008", "admins05uagta4ever"];
+
+// Проверка пароля
+function checkPassword() {
+    const passwordInput = document.getElementById("password-input").value;
+    const errorMessage = document.getElementById("error-message");
+    const loginContainer = document.getElementById("login-container");
+    const allCarsContainer = document.getElementById("allcars-container");
+
+    if (validPasswords.includes(passwordInput)) {
+        loginContainer.style.display = "none";
+        allCarsContainer.style.display = "block";
     } else {
         errorMessage.style.display = "block";
+        setTimeout(() => (errorMessage.style.display = "none"), 3000);
     }
 }
