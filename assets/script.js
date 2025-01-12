@@ -78,3 +78,44 @@ function calculateCraft() {
 
     resultDiv.innerText = resultText;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.querySelector(".sidebar");
+    const hamburger = document.querySelector(".hamburger");
+
+    // Переключение видимости боковой панели
+    hamburger.addEventListener("click", () => {
+        sidebar.classList.toggle("hidden");
+        document.querySelector(".content").classList.toggle("shifted");
+    });
+});
+
+// Хэш пароля для "odessit2008"
+const VALID_HASHES = [
+    "c8d4eea9c081a092dc20e82d0fbc8ec5a4c0b1cbba4b06d4885a25bc633293cb",
+    "d5c1b409fcb58b1dc7c4e1d29de2182b5b8bb93d2e8d8efb9f4de670d5c7a437"
+];
+
+function hashPassword(password) {
+    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(password)).then(buffer => {
+        return Array.from(new Uint8Array(buffer))
+            .map(byte => byte.toString(16).padStart(2, "0"))
+            .join("");
+    });
+}
+
+async function checkPassword() {
+    const passwordInput = document.getElementById("password-input").value;
+    const errorMessage = document.getElementById("error-message");
+    const loginContainer = document.getElementById("login-container");
+    const allcarsContainer = document.getElementById("allcars-container");
+
+    const hashedPassword = await hashPassword(passwordInput);
+
+    if (VALID_HASHES.includes(hashedPassword)) {
+        loginContainer.style.display = "none";
+        allcarsContainer.style.display = "block";
+    } else {
+        errorMessage.style.display = "block";
+    }
+}
