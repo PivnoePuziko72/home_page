@@ -13,14 +13,14 @@ body {
     background-color: #c8e5fc; /* Цвет фона хедера */
     padding: 20px;
     display: flex;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
-    padding-left: 260px; /* Отступ слева */
+    padding-left: -240px; /* Отступ влево */
 }
 
 /* Новая кнопка поиска */
@@ -170,8 +170,29 @@ body {
     margin: 0;
 }
 
+/* Основной стиль для выделенного текста */
 .highlight {
-    background-color: rgba(0, 255, 0, 0.3); /* Легкая зеленая подсветка */
-    border-radius: 10px;  /* Полукруглые углы */
-    padding: 2px 5px;  /* Немного отступов */
+  position: relative;
+  display: inline-block;
+  color: inherit;  /* Сохраняем исходный цвет текста */
+  background-color: rgba(0, 255, 0, 0.3); /* Легкая зеленая заливка */
+  border-radius: 10px;  /* Закругленные углы */
+  padding: 0 5px; /* Немного отступов для выделенного текста */
+  animation: slideHighlight 3s ease-in-out infinite; /* Анимация */
+}
+
+/* Анимация для эффектного выделения текста */
+@keyframes slideHighlight {
+  0% {
+    background-color: rgba(0, 255, 0, 0.3); /* Начальный зеленый цвет */
+    transform: translateX(-30px);  /* Сдвиг текста влево */
+  }
+  50% {
+    background-color: rgba(0, 255, 0, 0.5); /* Усиленный зеленый цвет */
+    transform: translateX(30px);  /* Сдвиг текста вправо */
+  }
+  100% {
+    background-color: rgba(0, 255, 0, 0.3); /* Вернуть в исходное состояние */
+    transform: translateX(-30px);  /* Возвращаемся в начальное положение */
+  }
 }
