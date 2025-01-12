@@ -2,12 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const hamburger = document.querySelector(".hamburger");
 
-    // Начальная позиция гамбургера
-    let initialX = 10; // Начальное значение по X
-    let initialY = 10; // Начальное значение по Y
-
-    hamburger.style.left = `${initialX}px`;
-    hamburger.style.top = `${initialY}px`;
+    // Устанавливаем начальное положение гамбургера ближе к верхнему левому углу
+    hamburger.style.left = "20px";
+    hamburger.style.top = "20px";
 
     hamburger.addEventListener('click', () => {
         sidebar.classList.toggle('open'); // Переключаем класс open для отображения/скрытия
@@ -147,18 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const offsetX = event.clientX - rect.left - rect.width / 2; // Смещение по X
         const offsetY = event.clientY - rect.top - rect.height / 2; // Смещение по Y
 
-        // Ограничение движения гамбургера
-        const maxDistance = 10;
+        // Расстояние между мышью и центром кнопки
+        const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
 
-        if (Math.abs(offsetX) < maxDistance && Math.abs(offsetY) < maxDistance) {
-            return;
+        if (distance < 100) { // Если курсор приближается
+            // Ограничиваем движение гамбургера на 20 пикселей
+            const maxMove = 20;
+            const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
+            const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
+
+            hamburger.style.left = `${20 + moveX}px`; // Начальная позиция 20px от левого края
+            hamburger.style.top = `${20 + moveY}px`;  // Начальная позиция 20px от верхнего края
         }
-
-        // Смещение гамбургера
-        const newX = initialX + (offsetX > 0 ? maxDistance : -maxDistance);
-        const newY = initialY + (offsetY > 0 ? maxDistance : -maxDistance);
-
-        hamburger.style.left = `${newX}px`;
-        hamburger.style.top = `${newY}px`;
     });
 });
