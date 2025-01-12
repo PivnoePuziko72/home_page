@@ -2,8 +2,9 @@ body {
     margin: 0;
     font-family: 'Comfortaa', Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     height: 100vh;
-    background-color: #0984e3; /* Убедитесь, что фон всегда синий */
+    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
 }
 
 .hamburger {
@@ -63,7 +64,7 @@ body {
 .content {
     flex-grow: 1;
     padding: 20px;
-    background-color: #74b9ff;
+    background-color: #74b9ff; /* Убедитесь, что фон всегда синий */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,7 +118,8 @@ body {
     justify-content: center;
     margin: 20px auto;
     width: 90%;
-    padding-top: 80px;
+    padding-top: 80px; /* Добавляет отступ сверху, чтобы результаты не закрывали меню поиска */
+    background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
 }
 
 .car-item {
