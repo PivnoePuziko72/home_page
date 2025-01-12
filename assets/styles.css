@@ -3,6 +3,7 @@ body {
     font-family: 'Comfortaa', Arial, sans-serif;
     display: flex;
     height: 100vh;
+    background-color: #0984e3; /* Убедитесь, что фон всегда синий */
 }
 
 .hamburger {
@@ -71,16 +72,17 @@ body {
 /* Меню поиска */
 #search-container {
     display: flex;
-    justify-content: flex-start; /* Размещение слева */
+    justify-content: center;
     align-items: center;
     padding: 20px;
     background-color: #f1f1f1;
-    position: sticky;
+    position: fixed; /* Закрепить меню поиска */
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Убедимся, что меню занимает всю ширину */
-    box-sizing: border-box;
+    margin-top: 0; /* Убирает отступ сверху */
 }
 
 #search-container label {
@@ -115,7 +117,7 @@ body {
     justify-content: center;
     margin: 20px auto;
     width: 90%;
-    box-sizing: border-box;
+    padding-top: 80px;
 }
 
 .car-item {
