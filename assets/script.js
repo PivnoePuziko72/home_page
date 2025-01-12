@@ -26,11 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Функция для поиска автомобилей
     function searchCars(query) {
-        const filteredCars = vehicles.filter(car =>
-            car.name.toLowerCase().includes(query.toLowerCase()) || 
-            car.id.toLowerCase().includes(query.toLowerCase())
-        );
-        displayResults(filteredCars);
+        const filteredCars = vehicles.filter(car => {
+            const carName = car.name ? String(car.name).toLowerCase() : ""; // Проверяем, что car.name существует
+            const carId = car.id ? String(car.id).toLowerCase() : "";       // Проверяем, что car.id существует
+
+            return carName.includes(query.toLowerCase()) || 
+                   carId.includes(query.toLowerCase());
+        });
+
+        displayResults(filteredCars); // Отображаем результаты поиска
     }
 
     // Отображение результатов поиска
@@ -56,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Обработчик клика на кнопку поиска
     searchButton.addEventListener("click", () => {
         const query = searchInput.value.trim();
-        searchCars(query);
+        searchCars(query); // Запускаем поиск
     });
 
     // Существующие функции для депозита
