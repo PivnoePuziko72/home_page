@@ -81,7 +81,6 @@ function calculateCraft() {
     resultDiv.innerText = resultText;
 }
 
-// Логика поиска автомобилей
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-btn');
@@ -116,26 +115,31 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        cars.forEach(car => {
-            const carElement = document.createElement('div');
-            carElement.classList.add('search-item');
-            carElement.innerHTML = `
-                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}" /> <!-- Путь к изображению -->
-                <p>Модель: ${car.id}</p>
-                <p>${car.name}</p>
-            `;
-            searchResults.appendChild(carElement);
-        });
+        // Разбиваем автомобили на ряды по 3 штуки
+        const rows = Math.ceil(cars.length / 3);
+        for (let i = 0; i < rows; i++) {
+            const row = document.createElement('div');
+            row.classList.add('car-row'); // Добавляем класс для ряда
+
+            // Добавляем автомобили в текущий ряд
+            for (let j = i * 3; j < (i + 1) * 3 && j < cars.length; j++) {
+                const car = cars[j];
+                const carElement = document.createElement('div');
+                carElement.classList.add('search-item');
+                carElement.innerHTML = `
+                    <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}" /> <!-- Путь к изображению -->
+                    <p>Модель: ${car.id}</p>
+                    <p>${car.name}</p>
+                `;
+                row.appendChild(carElement);
+            }
+
+            searchResults.appendChild(row); // Добавляем ряд в общий контейнер
+        }
     }
 
     // Поиск при нажатии на кнопку
     searchButton.addEventListener('click', () => {
-        const query = searchInput.value;
-        searchCars(query);
-    });
-
-    // Поиск при изменении ввода
-    searchInput.addEventListener('input', () => {
         const query = searchInput.value;
         searchCars(query);
     });
