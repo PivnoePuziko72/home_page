@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1; /* Слой ниже сайдбара */
-    padding-left: -240px; /* Отступ влево */
+    padding-left: -540px; /* Отступ влево */
 }
 
 /* Новая кнопка поиска */
@@ -170,29 +170,49 @@ body {
     margin: 0;
 }
 
-/* Основной стиль для выделенного текста */
+/* Стиль для выделенного текста */
 .highlight {
-  position: relative;
-  display: inline-block;
-  color: inherit;  /* Сохраняем исходный цвет текста */
-  background-color: rgba(0, 255, 0, 0.3); /* Легкая зеленая заливка */
-  border-radius: 10px;  /* Закругленные углы */
-  padding: 0 5px; /* Немного отступов для выделенного текста */
-  animation: slideHighlight 3s ease-in-out infinite; /* Анимация */
+  background-color: #8BC34A; /* Зеленая заливка */
+  border-radius: 12px; /* Полукруглые углы */
+  padding: 0 5px; /* Немного отступов вокруг текста */
+  position: relative; /* Для анимации бликов */
+  overflow: hidden; /* Убираем лишнее, если что-то выходит за пределы */
 }
 
-/* Анимация для эффектного выделения текста */
+/* Анимация для эффекта бликов */
 @keyframes slideHighlight {
   0% {
-    background-color: rgba(0, 255, 0, 0.3); /* Начальный зеленый цвет */
-    transform: translateX(-30px);  /* Сдвиг текста влево */
+    left: -30px;
+    margin-left: 0px;
   }
-  50% {
-    background-color: rgba(0, 255, 0, 0.5); /* Усиленный зеленый цвет */
-    transform: translateX(30px);  /* Сдвиг текста вправо */
+  30% {
+    left: 110%;
+    margin-left: 80px;
   }
   100% {
-    background-color: rgba(0, 255, 0, 0.3); /* Вернуть в исходное состояние */
-    transform: translateX(-30px);  /* Возвращаемся в начальное положение */
+    left: 110%;
+    margin-left: 80px;
   }
+}
+
+/* Псевдоэлемент для белого блика */
+.highlight:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 100%;
+  margin-left: 60px;
+  background: #fff;
+  opacity: 0.5;
+  position: absolute;
+  left: -40px;
+  top: 0;
+  z-index: 1;
+  transform: rotate(45deg);
+  transition: all 0.1s;
+  animation-name: slideHighlight;
+  animation-duration: 3s;
+  animation-delay: 0.05s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
