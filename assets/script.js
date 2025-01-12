@@ -12,7 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchResults = document.getElementById("search-results");
 
     let vehicles = []; // Переменная для хранения данных автомобилей
-
+    // Загрузка данных из JSON
+    fetch("./assets/carsData.json")
+        .then(response => response.json())
+        .then(data => {
+            vehicles = data.vehicles;
+            
     // Функция для поиска автомобилей
     function searchCars(query) {
         const filteredCars = vehicles.filter(car => {
