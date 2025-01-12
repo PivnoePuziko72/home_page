@@ -3,9 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
 
     // Переключение видимости боковой панели
-    hamburger.addEventListener("click", () => {
-        sidebar.classList.toggle("hidden");
-        document.querySelector(".content").classList.toggle("shifted");
+    const hamburger = document.querySelector('.hamburger'); // Кнопка гамбургера
+    const sidebar = document.querySelector('.sidebar');     // Сайдбар
+
+    hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('open'); // Переключаем класс open для отображения/скрытия
     });
 
     // Работа с поиском автомобилей
@@ -14,15 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchResults = document.getElementById("search-results");
 
     let vehicles = []; // Переменная для хранения данных автомобилей
-
-    // Загрузка данных из JSON
-    fetch("./assets/carsData.json")
-        .then(response => response.json())
-        .then(data => {
-            vehicles = data.vehicles; // Сохранение автомобилей в массив
-            console.log("Данные автомобилей загружены:", vehicles);
-        })
-        .catch(error => console.error("Ошибка загрузки JSON:", error));
 
     // Функция для поиска автомобилей
     function searchCars(query) {
