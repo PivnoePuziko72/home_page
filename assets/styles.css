@@ -1,137 +1,140 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const sidebar = document.querySelector(".sidebar");
-    const hamburger = document.querySelector(".hamburger");
+body {
+    margin: 0;
+    font-family: 'Comfortaa', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #74b9ff; /* Обеспечиваем, что фон всегда синий */
+}
 
-    // Переключение видимости боковой панели
-    hamburger.addEventListener("click", () => {
-        sidebar.classList.toggle("hidden");
-        document.querySelector(".content").classList.toggle("shifted");
-    });
+.hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+}
 
-    // Работа с поиском автомобилей
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-btn");
-    const searchResults = document.getElementById("search-results");
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #0984e3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    transition: transform 0.3s ease;
+}
 
-    let vehicles = []; // Переменная для хранения данных автомобилей
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
 
-    // Загрузка данных из JSON
-    fetch("./assets/carsData.json")
-        .then(response => response.json())
-        .then(data => {
-            vehicles = data.vehicles; // Сохранение автомобилей в массив
-            console.log("Данные автомобилей загружены:", vehicles);
-        })
-        .catch(error => console.error("Ошибка загрузки JSON:", error));
+.sidebar-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 
-    // Функция для поиска автомобилей
-    function searchCars(query) {
-        const filteredCars = vehicles.filter(car => {
-            const carName = car.name ? String(car.name).toLowerCase() : ""; // Проверяем, что car.name существует
-            const carId = car.id ? String(car.id).toLowerCase() : "";       // Проверяем, что car.id существует
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-align: center;
+    width: 90%;
+    transition: background-color 0.3s ease, filter 0.3s ease;
+}
 
-            return carName.includes(query.toLowerCase()) || 
-                   carId.includes(query.toLowerCase());
-        });
+.sidebar a:hover {
+    background-color: #74b9ff;
+    filter: brightness(1.2);
+}
 
-        displayResults(filteredCars); // Отображаем результаты поиска
-    }
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #74b9ff; /* Убедитесь, что фон всегда синий */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    // Отображение результатов поиска
-    function displayResults(cars) {
-        searchResults.innerHTML = ""; // Очистка результатов
-        if (cars.length === 0) {
-            searchResults.innerHTML = "<p>Автомобілі не знайдено.</p>";
-            return;
-        }
+/* Меню поиска */
+#search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    position: fixed; /* Закрепить меню поиска */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 0; /* Убирает отступ сверху */
+}
 
-        cars.forEach(car => {
-            const carElement = document.createElement("div");
-            carElement.classList.add("car-item");
-            carElement.innerHTML = `
-                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
-                <p><strong>Модель:</strong> ${car.id}</p>
-                <p><strong>Название:</strong> ${car.name}</p>
-            `;
-            searchResults.appendChild(carElement);
-        });
-    }
+#search-container label {
+    margin-right: 10px;
+}
 
-    // Обработчик клика на кнопку поиска
-    searchButton.addEventListener("click", () => {
-        const query = searchInput.value.trim();
-        searchCars(query); // Запускаем поиск
-    });
+#search-input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-    // Существующие функции для депозита
-    function calculateDeposit() {
-        const amount = parseFloat(document.getElementById("amount").value);
-        const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
-        const resultDiv = document.getElementById("result");
+#search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        if (isNaN(amount) || amount <= 0) {
-            resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
-            return;
-        }
-        if (amount > 5000000) {
-            resultDiv.innerText = "Помилка: Максимальна сума депозиту — 5000000.";
-            return;
-        }
+#search-btn:hover {
+    background-color: #0056b3;
+}
 
-        if (isNaN(rate) || rate <= 0) {
-            resultDiv.innerText = "Помилка: Неправильний відсотковий розмір.";
-            return;
-        }
-        if (isNaN(paydays) || paydays <= 0) {
-            resultDiv.innerText = "Помилка: Неправильна кількість днів.";
-            return;
-        }
+/* Результаты поиска */
+#search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    width: 90%;
+    padding-top: 80px; /* Добавляет отступ сверху, чтобы результаты не закрывали меню поиска */
+    background-color: #74b9ff; /* Устанавливаем фон сайта для результатов */
+}
 
-        const finalRate = 1.0 + rate / 100;
-        const result = amount * Math.pow(finalRate, paydays);
+.car-item {
+    background-color: #eaeaea;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
-    }
-
-    // Существующая функция для крафта
-    function calculateCraft() {
-        const recipes = {
-            glintwein: {
-                name: "Глінтвейн",
-                ingredients: {
-                    "Мускатний горіх": 1,
-                    "Вино": 4,
-                    "Лимон": 5,
-                    "Імбир": 1
-                }
-            },
-            gift: {
-                name: "Подарунок",
-                ingredients: {
-                    "Гілка сосни": 15,
-                    "Льодяник": 3,
-                    "Подарунковий папір": 3,
-                    "Апельсин": 2,
-                    "Червона фарба": 3
-                }
-            }
-        };
-
-        const quantity = parseInt(document.getElementById("quantity").value);
-        const recipeKey = document.getElementById("recipe").value;
-        const recipe = recipes[recipeKey];
-        const resultDiv = document.getElementById("result");
-
-        if (isNaN(quantity) || quantity <= 0) {
-            resultDiv.innerText = "Помилка: Введіть коректну кількість.";
-            return;
-        }
-
-        let resultText = `Рецепт: ${recipe.name}\n\nНеобхідні ресурси:`;
-        for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
-            resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
-        }
-
-        resultDiv.innerText = resultText;
-    }
-});
+.car-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
