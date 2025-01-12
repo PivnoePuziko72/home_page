@@ -8,6 +8,57 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".content").classList.toggle("shifted");
     });
 
+    // Работа с поиском автомобилей
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-btn");
+    const searchResults = document.getElementById("search-results");
+
+    let vehicles = [];
+
+    // Загрузка данных из JSON
+    fetch("./assets/carsData.json")
+        .then(response => response.json())
+        .then(data => {
+            vehicles = data.vehicles;
+            console.log("Данные автомобилей загружены:", vehicles);
+        })
+        .catch(error => console.error("Ошибка загрузки JSON:", error));
+
+    // Функция для поиска автомобилей
+    function searchCars(query) {
+        const filteredCars = vehicles.filter(car =>
+            car.name.toLowerCase().includes(query.toLowerCase()) || 
+            car.id.toLowerCase().includes(query.toLowerCase())
+        );
+        displayResults(filteredCars);
+    }
+
+    // Отображение результатов
+    function displayResults(cars) {
+        searchResults.innerHTML = ""; // Очистка результатов
+        if (cars.length === 0) {
+            searchResults.innerHTML = "<p>Автомобілі не знайдено.</p>";
+            return;
+        }
+
+        cars.forEach(car => {
+            const carElement = document.createElement("div");
+            carElement.classList.add("car-item");
+            carElement.innerHTML = `
+                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
+                <p><strong>Модель:</strong> ${car.id}</p>
+                <p><strong>Название:</strong> ${car.name}</p>
+            `;
+            searchResults.appendChild(carElement);
+        });
+    }
+
+    // Обработчик клика на кнопку поиска
+    searchButton.addEventListener("click", () => {
+        const query = searchInput.value.trim();
+        searchCars(query);
+    });
+
     // Существующие функции для депозита и крафта
     function calculateDeposit() {
         const amount = parseFloat(document.getElementById("amount").value);
@@ -78,55 +129,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resultDiv.innerText = resultText;
     }
-
-    // Работа с поиском автомобилей
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-btn");
-    const searchResults = document.getElementById("search-results");
-
-    let vehicles = [];
-
-    // Загрузка данных из JSON
-    fetch("./assets/carsData.json")
-        .then(response => response.json())
-        .then(data => {
-            vehicles = data.vehicles;
-            console.log("Данные автомобилей загружены:", vehicles);
-        })
-        .catch(error => console.error("Ошибка загрузки JSON:", error));
-
-    // Функция для поиска автомобилей
-    function searchCars(query) {
-        const filteredCars = vehicles.filter(car =>
-            car.name.toLowerCase().includes(query.toLowerCase()) || 
-            car.id.toLowerCase().includes(query.toLowerCase())
-        );
-        displayResults(filteredCars);
-    }
-
-    // Отображение результатов
-    function displayResults(cars) {
-        searchResults.innerHTML = ""; // Очистка результатов
-        if (cars.length === 0) {
-            searchResults.innerHTML = "<p>Автомобілі не знайдено.</p>";
-            return;
-        }
-
-        cars.forEach(car => {
-            const carElement = document.createElement("div");
-            carElement.classList.add("car-item");
-            carElement.innerHTML = `
-                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
-                <p><strong>Модель:</strong> ${car.id}</p>
-                <p><strong>Название:</strong> ${car.name}</p>
-            `;
-            searchResults.appendChild(carElement);
-        });
-    }
-
-    // Обработчик клика на кнопку поиска
-    searchButton.addEventListener("click", () => {
-        const query = searchInput.value.trim();
-        searchCars(query);
-    });
-}); 
+});
