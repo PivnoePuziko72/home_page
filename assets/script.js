@@ -133,4 +133,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         resultDiv.innerText = resultText;
     }
+
+    // JavaScript для "убегающего" гамбургера
+    hamburger.addEventListener("mousemove", (event) => {
+        const rect = hamburger.getBoundingClientRect(); // Координаты кнопки
+        const offsetX = event.clientX - rect.left - rect.width / 2; // Смещение по X
+        const offsetY = event.clientY - rect.top - rect.height / 2; // Смещение по Y
+
+        // Расстояние между мышью и центром кнопки
+        const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+
+        if (distance < 100) { // Если курсор приближается
+            // Новая случайная позиция в пределах окна
+            const newX = Math.random() * (window.innerWidth - rect.width);
+            const newY = Math.random() * (window.innerHeight - rect.height);
+
+            hamburger.style.left = `${newX}px`;
+            hamburger.style.top = `${newY}px`;
+        }
+    });
 });
