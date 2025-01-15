@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
 
     // Устанавливаем начальное положение гамбургера
-    hamburger.style.position = "fixed";  // Используем fixed, чтобы гамбургер не листался при прокрутке
+    hamburger.style.position = "fixed"; // Используем fixed, чтобы гамбургер не листался при прокрутке
     hamburger.style.left = "20px";
     hamburger.style.top = "20px";
     hamburger.style.zIndex = "1000"; // Убедимся, что гамбургер будет на переднем плане
@@ -87,16 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const amount = parseFloat(document.getElementById("amount").value);
         const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
         const resultDiv = document.getElementById("result");
-        
+
         if (isNaN(amount) || amount <= 0 || amount > 5000000) {
             resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
             return;
-            
+        }
+
         const finalRate = 1.0 + rate / 100;
         const result = amount * Math.pow(finalRate, paydays);
 
         resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
-    }
+    });
 
     // Существующая функция для крафта
     function calculateCraft() {
@@ -154,6 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const maxMove = 20;
             const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
             const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
+
+            hamburger.style.transform = `translate(${moveX}px, ${moveY}px)`;
         }
     });
 });
