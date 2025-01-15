@@ -9,19 +9,19 @@
 </head>
 <body>
     <div class="craft-content">
-        <div class="craft-container">
-            <h1>Калькулятор крафта</h1>
-            <form id="craftForm"></form>
-                <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
-                <select id="recipe"></select>
-                    <option value="glintwein">Глінтвейн</option>
-                    <option value="gift">Подарунок</option>
-                </select>
-                <button type="button" onclick="calculate()">Розрахувати</button>
-            </form>
-            <div id="result"></div>
-            <div class="footer"></div>
-                <p>© 2024-2025, by PivnoePuziko72. Івент проводився з 24.12.24 по 12.01.25.</p>
+    <h1>Калькулятор крафта</h1>
+    <form id="craftForm">
+        <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
+        <select id="recipe">
+            <option value="glintwein">Глінтвейн</option>
+            <option value="gift">Подарунок</option>
+        </select>
+        <button type="button" onclick="calculate()">Розрахувати</button>
+    </form>
+    <div id="result"></div>
+    <div class="footer">
+        <p>© 2024-2025, by PivnoePuziko72. Івент проводився з 24.12.24 по 12.01.25.</p>
+    </div>
             </div>
         </div>
     </div>
