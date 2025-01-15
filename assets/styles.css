@@ -234,23 +234,26 @@ body {
 .craft-content {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 70px; /* For header space */
+    align-items: flex-start;  /* Changed from center to flex-start */
+    min-height: calc(100vh - 90px); /* Adjusted for header and footer */
+    padding: 90px 20px 20px 20px; /* Top padding for header, sides for spacing */
+    background-color: #74b9ff;
 }
 
 .craft-container {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 30px 20px;
     width: 400px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
+    margin-bottom: 20px;
 }
 
 .craft-container input,
@@ -275,6 +278,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     width: 90%;
+    margin: 15px 0;
     background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
 }
 
@@ -285,10 +289,10 @@ body {
 }
 
 .craft-container #result {
-    margin-top: 10px;
+    margin-top: 15px;
     color: #2d3436;
-    font-weight: bold;
     white-space: pre-line;
+    padding: 10px;
 }
 
 .craft-container .footer {
