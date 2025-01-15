@@ -231,6 +231,14 @@ body {
 }
 
 /* Стили для калькулятора крафта */
+.craft-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 70px; /* For header space */
+}
+
 .craft-container {
     background-color: white;
     border-radius: 10px;
