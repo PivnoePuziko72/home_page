@@ -114,13 +114,15 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
+    document.getElementById("calculate-craft-btn").addEventListener("click", calculateCraft);
+
     searchButton.addEventListener("click", () => {
         const query = searchInput.value.trim();
         searchCars(query);
     });
 
     document.getElementById("calculate-deposit-btn").addEventListener("click", calculate_deposit);
-    document.getElementById("calculate-craft-btn").addEventListener("click", calculateCraft);
+    
 
     hamburger.addEventListener("mousemove", (event) => {
         const rect = hamburger.getBoundingClientRect();
