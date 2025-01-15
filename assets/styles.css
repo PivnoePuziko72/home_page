@@ -229,3 +229,62 @@ body {
 .footer p {
     margin: 0;
 }
+
+/* Стили для калькулятора крафта */
+.craft-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+.craft-container h1 {
+    font-size: 24px;
+    color: #2d3436;
+}
+
+.craft-container input,
+.craft-container select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.craft-container button {
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;
+    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
+}
+
+.craft-container button:hover {
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.craft-container #result {
+    margin-top: 10px;
+    color: #2d3436;
+    font-weight: bold;
+    white-space: pre-line;
+}
+
+.craft-container .footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #636e72;
+}
