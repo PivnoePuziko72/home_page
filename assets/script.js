@@ -108,6 +108,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
+        function calculate_deposit() {
+            const amount = parseFloat(document.getElementById("amount").value);
+            const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
+            const resultDiv = document.getElementById("result");
+
+            if (isNaN(amount) || amount <= 0 || amount > 5000000) {
+                resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
+                return;
+            }
+
+            const finalRate = 1.0 + rate / 100;
+            const result = amount * Math.pow(finalRate, paydays);
+            resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
+        };
+
         const quantity = parseInt(document.getElementById("quantity").value);
         const recipeKey = document.getElementById("recipe").value;
         const recipe = recipes[recipeKey];
