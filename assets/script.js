@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function calculate_deposit() {
         const amount = parseFloat(document.getElementById("amount").value);
-        const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
+        const optionValue = document.getElementById("option").value;
+        const [rate, paydays] = optionValue.split(" ").map(Number);
         const resultDiv = document.getElementById("result");
 
         if (isNaN(amount) || amount <= 0 || amount > 5000000) {
@@ -95,6 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = amount * Math.pow(finalRate, paydays);
         resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
     }
+    
+    document.getElementById("calculate-deposit-btn").addEventListener("click", calculate_deposit);
 
     function calculateCraft() {
         const quantity = parseInt(document.getElementById("quantity").value);
@@ -119,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
         searchCars(query);
     });
 
-    document.getElementById("calculate-deposit-btn").addEventListener("click", calculate_deposit);
     document.getElementById("calculate-craft-btn").addEventListener("click", calculateCraft);
 
     hamburger.addEventListener("mousemove", (event) => {
