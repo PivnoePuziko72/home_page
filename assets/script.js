@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            let resultText = `Необхідні ресурси:\n для "${recipe.name.toLowerCase()}" у кількості ${quantity}`;
+            let resultText = `Необхідні ресурси для "${recipe.name.toLowerCase()}" у кількості ${quantity}:\n`;
             for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
                 resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
             }
