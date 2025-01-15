@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const highlightedId = query && query.trim() !== "" ? highlightText(car.id, query) : car.id;
 
             carElement.innerHTML = `
-                <img src="./assets/carsmodels/${car.id}.png" alt="${car.name}">
+                <img src="./images/carsmodels/${car.id}.png" alt="${car.name}">
                 <p><strong>Модель:</strong> ${highlightedId}</p>
                 <p><strong>Назва:</strong> ${highlightedName}</p>
             `;
