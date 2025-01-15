@@ -234,11 +234,11 @@ body {
 .craft-content {
     display: flex;
     justify-content: center;
-    align-items: center;  /* Changed back to center */
-    min-height: 100vh;
+    align-items: center;
+    min-height: calc(100vh - 90px);
     padding: 90px 20px 20px 20px;
     background-color: #74b9ff;
-    margin-bottom: -90px; /* Compensate for footer */
+    position: relative; /* Add position relative */
 }
 
 .craft-container {
@@ -249,10 +249,10 @@ body {
     width: 400px;
     text-align: center;
     margin: 0 auto;
-    max-height: calc(100vh - 120px); /* Prevent overflow */
-    overflow-y: auto; /* Add scroll if content is too long */
+    transform: translateY(-40px); /* Move up by 40px */
 }
 
+/* Rest of the styles remain the same */
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
