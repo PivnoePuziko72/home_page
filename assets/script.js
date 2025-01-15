@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const quantity = parseInt(document.getElementById("quantity").value);
         const recipeKey = document.getElementById("recipe").value;
         const recipe = recipes[recipeKey];
-        const resultDiv = document.getElementById("result");
+        const resultDiv = document.getElementById("craft-result");
 
         if (isNaN(quantity) || quantity <= 0) {
             resultDiv.innerText = "Помилка: Введіть коректну кількість.";

@@ -6,14 +6,9 @@
     <title>Івент-підрахуйщик 2.5</title>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="icon" type="image/x-icon" href="images/logox.ico">
-    <style>
-    </style>
 </head>
 <body>
-    <!-- Кнопка-гамбургер -->
     <img src="images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
-
-    <!-- Сайдбар -->
     <div class="sidebar">
         <img src="images/logof.ico" alt="Логотип" class="sidebar-logo">
         <h2>Меню</h2>
@@ -22,64 +17,21 @@
         <a href="craft.html">Івент-підрахуйщик 2.5</a>
         <a href="allcars.html">Транспорт 2.5</a>
     </div>
-
-    <div class="content"></div>
+    <div class="content">
         <div class="container">
             <h1>Розрахунки івенту 2.5</h1>
-            <form id="craftForm"></form>
+            <form id="craftForm">
                 <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
                 <select id="recipe">
                     <option value="gift">Подарунок</option>
                     <option value="glintwein">Глінтвейн</option>
                 </select>
-                <button type="button" onclick="calculate()">Розрахувати</button>
+                <button type="button" id="calculate-craft-btn">Розрахувати</button>
             </form>
             <div id="result"></div>
             <div class="footer">Created by PivnoePuziko72</div>
         </div>
     </div>
-
-    <script>
-        const recipes = {
-            glintwein: {
-                name: "Глінтвейн",
-                ingredients: {
-                    "Мускатний горіх": 1,
-                    "Вино": 4,
-                    "Лимон": 5,
-                    "Імбир": 1
-                }
-            },
-            gift: {
-                name: "Подарунок",
-                ingredients: {
-                    "Гілка сосни": 10,
-                    "Льодяник": 3,
-                    "Подарунковий папір": 3,
-                    "Апельсин": 2,
-                    "Червона фарба": 3
-                }
-            }
-        };
-
-        function calculate() {
-            const quantity = parseInt(document.getElementById("quantity").value);
-            const recipeKey = document.getElementById("recipe").value;
-            const recipe = recipes[recipeKey];
-            const resultDiv = document.getElementById("result");
-
-            if (isNaN(quantity) || quantity <= 0) {
-                resultDiv.innerText = "Помилка: Введіть коректну кількість.";
-                return;
-            }
-
-            let resultText = `Рецепт: ${recipe.name}\n\nНеобхідні ресурси:`;
-            for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
-                resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
-            }
-
-            resultDiv.innerText = resultText;
-        }
-    </script>
+    <script type="module" src="assets/script.js"></script>
 </body>
 </html>
