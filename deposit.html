@@ -29,7 +29,8 @@
                     <option value="0.3 20">20 PayDay - 0.3%</option>
                     <option value="0.8 60">60 PayDay - 0.8%</option>
                 </select>
-                <button type="button" onclick="calculate_deposit()">Розрахувати</button>
+                <button type="button" id="calculate-deposit-btn">Розрахувати</button>
+                <button id="search-btn">Пошук</button>
             </form>
             <div id="result"></div>
         </div>
@@ -37,21 +38,6 @@
     <footer class="footer">
         <p>© 2024-2025, by PivnoePuziko72. Скрипт депозиту by Kirill Phantom</p>
     </footer>
-    <script>
-        function calculate_deposit() {
-            const amount = parseFloat(document.getElementById("amount").value);
-            const [rate, paydays] = document.getElementById("option").value.split(" ").map(Number);
-            const resultDiv = document.getElementById("result");
-
-            if (isNaN(amount) || amount <= 0 || amount > 5000000) {
-                resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
-                return;
-            }
-
-            const finalRate = 1.0 + rate / 100;
-            const result = amount * Math.pow(finalRate, paydays);
-            resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
-        }
-    </script>
+    <script type="module" src="assets/script.js"></script>
 </body>
 </html>
