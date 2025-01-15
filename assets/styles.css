@@ -234,9 +234,9 @@ body {
 .craft-content {
     display: flex;
     justify-content: center;
-    align-items: flex-start;  /* Changed from center to flex-start */
-    min-height: calc(100vh - 90px); /* Adjusted for header and footer */
-    padding: 90px 20px 20px 20px; /* Top padding for header, sides for spacing */
+    align-items: center;  /* Changed back to center */
+    min-height: 100vh;
+    padding: 120px 20px 20px 20px; /* Increased top padding */
     background-color: #74b9ff;
 }
 
@@ -247,7 +247,9 @@ body {
     padding: 30px 20px;
     width: 400px;
     text-align: center;
-    margin: 0 auto;
+    margin: auto; /* Centers the container */
+    position: relative; /* Added for better positioning */
+    top: -40px; /* Moves container up slightly */
 }
 
 .craft-container h1 {
