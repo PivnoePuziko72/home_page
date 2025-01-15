@@ -110,21 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const recipe = recipes[recipeKey];
         const resultDiv = document.getElementById("craft-result");
 
-        // Check if input contains only digits
         if (!/^\d+$/.test(quantityInput)) {
-            resultDiv.innerText = "Помилка: Введіть тільки цілі числа без пробілів та інших символів.";
+            resultDiv.innerText = "Помилка: Допускаються лише цілі числа без всяких какашок.";
             return;
         }
 
         const quantity = parseInt(quantityInput);
         
-        // Check if number is positive and greater than 0
         if (quantity < 1) {
-            resultDiv.innerText = "Помилка: Число повинно бути більше 0.";
+            resultDiv.innerText = "Помилка: Число повинно бути більше за 0.";
             return;
         }
 
-        let resultText = `Рецепт: ${recipe.name}\n\nНеобхідні ресурси:`;
+        let resultText = `Необхідні ресурси:`;
         for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
             resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
         }
