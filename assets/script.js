@@ -114,7 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    document.getElementById("calculate-craft-btn").addEventListener("click", calculateCraft);
+    const calculateCraftBtn = document.getElementById("calculate-craft-btn");
+    if (calculateCraftBtn) {
+        calculateCraftBtn.addEventListener("click", calculateCraft);
+    }
 
     searchButton.addEventListener("click", () => {
         const query = searchInput.value.trim();
