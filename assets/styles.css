@@ -291,14 +291,14 @@ body {
 }
 
 .craft-container #craft-result {
-    margin-top: 15px; /* Увеличен отступ сверху */
+    margin-top: 15px;
+    margin-bottom: 10px; /* Добавил отступ снизу */
     color: #2d3436;
     white-space: pre-line;
-    padding: 10px;
 }
 
 .craft-container .footer {
-    margin-top: 20px;
+    margin-top: -20px;
     font-size: 12px;
     color: #636e72;
 }
