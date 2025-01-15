@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gift: {
             name: "Подарунок",
             ingredients: {
-                "Гілка сосни": 15,
+                "Гілка сосни": 10,
                 "Льодяник": 3,
                 "Подарунковий папір": 3,
                 "Апельсин": 2,
@@ -23,9 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+    }
 
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-btn");
@@ -96,8 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = amount * Math.pow(finalRate, paydays);
         resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
     }
-    
-    document.getElementById("calculate-deposit-btn").addEventListener("click", calculate_deposit);
+
+    const calculateDepositBtn = document.getElementById("calculate-deposit-btn");
+    if (calculateDepositBtn) {
+        calculateDepositBtn.addEventListener("click", calculate_deposit);
+    }
 
     function calculateCraft() {
         const quantity = parseInt(document.getElementById("quantity").value);
@@ -117,27 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
-    searchButton.addEventListener("click", () => {
-        const query = searchInput.value.trim();
-        searchCars(query);
-    });
-
     const calculateCraftBtn = document.getElementById("calculate-craft-btn");
     if (calculateCraftBtn) {
         calculateCraftBtn.addEventListener("click", calculateCraft);
     }
 
-    hamburger.addEventListener("mousemove", (event) => {
-        const rect = hamburger.getBoundingClientRect();
-        const offsetX = event.clientX - rect.left - rect.width / 2;
-        const offsetY = event.clientY - rect.top - rect.height / 2;
-        const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
-
-        if (distance < 100) {
-            const maxMove = 20;
-            const moveX = Math.max(-maxMove, Math.min(maxMove, offsetX));
-            const moveY = Math.max(-maxMove, Math.min(maxMove, offsetY));
-            hamburger.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        }
-    });
+    if (searchButton) {
+        searchButton.addEventListener("click", () => {
+            const query = searchInput.value.trim();
+            searchCars(query);
+        });
+    }
 });
