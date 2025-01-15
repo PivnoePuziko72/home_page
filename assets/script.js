@@ -105,13 +105,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function calculateCraft() {
-        const quantity = parseInt(document.getElementById("quantity").value);
+        const quantityInput = document.getElementById("quantity").value.trim();
         const recipeKey = document.getElementById("recipe").value;
         const recipe = recipes[recipeKey];
         const resultDiv = document.getElementById("craft-result");
 
-        if (isNaN(quantity) || quantity <= 0) {
-            resultDiv.innerText = "Помилка: Введіть коректну кількість.";
+        // Check if input contains only digits
+        if (!/^\d+$/.test(quantityInput)) {
+            resultDiv.innerText = "Помилка: Введіть тільки цілі числа без пробілів та інших символів.";
+            return;
+        }
+
+        const quantity = parseInt(quantityInput);
+        
+        // Check if number is positive and greater than 0
+        if (quantity < 1) {
+            resultDiv.innerText = "Помилка: Число повинно бути більше 0.";
             return;
         }
 
