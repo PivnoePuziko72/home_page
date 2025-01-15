@@ -171,7 +171,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Учитываем высоту хедера и футера */
     background-color: #74b9ff;
 }
 
@@ -201,20 +200,29 @@ body {
 }
 
 .deposit-container button {
-    background-color: #0984e3;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
 }
 
 .deposit-container button:hover {
-    background-color: #74b9ff;
+    background-position: right center; /* Анимация при наведении */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Усиление тени при наведении */
+    transform: scale(1.05); /* Легкое увеличение */
 }
 
 #result {
     margin-top: 10px;
     font-size: 16px;
-    color: #2d3436;
+    color: #000000;
     text-align: center;
 }
 
