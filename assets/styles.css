@@ -166,6 +166,58 @@ body {
     width: 100%;
 }
 
+/* Дизайн для калькулятора депозиту */
+.deposit-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Учитываем высоту хедера и футера */
+    background-color: #74b9ff;
+}
+
+.deposit-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+.deposit-container h1 {
+    font-size: 24px;
+    color: #2d3436;
+}
+
+.deposit-container input,
+.deposit-container select,
+.deposit-container button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.deposit-container button {
+    background-color: #0984e3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deposit-container button:hover {
+    background-color: #74b9ff;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #2d3436;
+    text-align: center;
+}
+
 .footer p {
     margin: 0;
 }
