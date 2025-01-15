@@ -3,39 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор крафта</title>
+    <title>Івент-підрахуйщик 2.5</title>
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/logox.ico">
+    <!-- Значок сайта -->
+    <link rel="icon" type="image/x-icon" href="images/logox.ico">
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-            <h1>Івент-підрахуйщик 2.5</h1>
-        </div>
-    </header>
-    <img src="assets/logox.ico" alt="Логотип" class="hamburger" id="hamburger">
+=
+    <!-- Кнопка-гамбургер -->
+    <img src="images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
+
+    <!-- Сайдбар -->
     <div class="sidebar">
-        <img src="assets/logof.ico" alt="Логотип" class="sidebar-logo">
+        <img src="images/logof.ico" alt="Логотип" class="sidebar-logo">
         <h2>Меню</h2>
         <a href="index.html">Головна</a>
         <a href="deposit.html">Калькулятор депозиту</a>
         <a href="craft.html">Івент-підрахуйщик 2.5</a>
         <a href="allcars.html">Транспорт 2.5</a>
     </div>
+
     <div class="content">
-        <form id="craftForm">
-            <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
-            <select id="recipe">
-                <option value="gift">Подарунок</option>
-                <option value="glintwein">Глінтвейн</option>
-            </select>
-            <button id="calculate-craft-btn">Розрахувати</button>
-        </form>
-        <div id="result"></div>
+        <div class="container">
+            <h1>Розрахунки івенту 2.5</h1>
+            <form id="craftForm">
+                <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
+                <select id="recipe">
+                    <option value="gift">Подарунок</option>
+                    <option value="glintwein">Глінтвейн</option>
+                </select>
+                <button type="button" onclick="calculateCraft()">Розрахувати</button>
+            </form>
+            <div id="result"></div>
+            <div class="footer">Created by PivnoePuziko72</div>
+        </div>
     </div>
-    <footer class="footer">
-         <p>© 2024-2025, by PivnoePuziko72. Скрипт депозиту by Kirill Phantom</p>
-    </footer>
+
     <script src="assets/script.js"></script>
+    <script>
+        fetch('assets/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.head.innerHTML += data;
+        });
+    </script>
 </body>
 </html>
