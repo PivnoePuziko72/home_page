@@ -238,7 +238,7 @@ body {
     min-height: calc(100vh - 90px);
     padding: 90px 20px 20px 20px;
     background-color: #74b9ff;
-    position: relative; /* Add position relative */
+    position: relative;
 }
 
 .craft-container {
@@ -252,7 +252,6 @@ body {
     transform: translateY(-90px);
 }
 
-/* Rest of the styles remain the same */
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
@@ -292,7 +291,7 @@ body {
 }
 
 .craft-container #result {
-    margin-top: 15px;
+    margin-top: 8px; /* Reduced from 15px to 8px */
     color: #2d3436;
     white-space: pre-line;
     padding: 10px;
