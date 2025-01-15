@@ -236,7 +236,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 90px);
-    padding: 90px 20px 20px 20px;
+    padding: 90px 20px 60px 20px; /* Добавлен нижний отступ */
     background-color: #74b9ff;
     position: relative;
 }
@@ -290,8 +290,8 @@ body {
     transform: scale(1.05);
 }
 
-.craft-container #result {
-    margin-top: 8px; /* Reduced from 15px to 8px */
+.craft-container #craft-result {
+    margin-top: 15px; /* Увеличен отступ сверху */
     color: #2d3436;
     white-space: pre-line;
     padding: 10px;
