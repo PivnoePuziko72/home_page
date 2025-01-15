@@ -122,7 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
         searchCars(query);
     });
 
-    document.getElementById("calculate-craft-btn").addEventListener("click", calculateCraft);
+    const calculateCraftBtn = document.getElementById("calculate-craft-btn");
+    if (calculateCraftBtn) {
+        calculateCraftBtn.addEventListener("click", calculateCraft);
+    }
 
     hamburger.addEventListener("mousemove", (event) => {
         const rect = hamburger.getBoundingClientRect();
