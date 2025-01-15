@@ -229,24 +229,3 @@ body {
 .footer p {
     margin: 0;
 }
-
-/* Кнопка */
-button {
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
-}
-
-button:hover {
-    background-position: right center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-}
