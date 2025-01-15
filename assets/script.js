@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        let resultText = `Необхідні ресурси:`;
+        let resultText = `Необхідні ресурси:\n$ для "{recipe.name}" у кількості ${quantity}`;
         for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
             resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
         }

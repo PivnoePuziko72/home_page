@@ -249,7 +249,7 @@ body {
     width: 400px;
     text-align: center;
     margin: 0 auto;
-    transform: translateY(-40px); /* Move up by 40px */
+    transform: translateY(-90px);
 }
 
 /* Rest of the styles remain the same */
