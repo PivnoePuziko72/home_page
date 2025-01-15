@@ -13,59 +13,15 @@
             <h1>Калькулятор крафта</h1>
             <form id="craftForm">
                 <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
-                <select id="recipe"></select>
+                <select id="recipe">
                     <option value="glintwein">Глінтвейн</option>
                     <option value="gift">Подарунок</option>
                 </select>
-                <button type="button" onclick="calculate()">Розрахувати</button>
+                <button type="button" id="calculate-craft-btn">Розрахувати</button>
             </form>
-            <div id="result"></div>
-            <div class="footer"></div>
-                <p>© 2024-2025, by PivnoePuziko72. Івент проводився з 24.12.24 по 12.01.25.</p>
-            </div>
+            <div id="craft-result"></div>
         </div>
     </div>
-    <script>
-        const recipes = {
-            glintwein: {
-                name: "Глінтвейн",
-                ingredients: {
-                    "Мускатний горіх": 1,
-                    "Вино": 4,
-                    "Лимон": 5,
-                    "Імбир": 1
-                }
-            },
-            gift: {
-                name: "Подарунок",
-                ingredients: {
-                    "Гілка сосни": 10,
-                    "Льодяник": 3,
-                    "Подарунковий папір": 3,
-                    "Апельсин": 2,
-                    "Червона фарба": 3
-                }
-            }
-        };
-
-        function calculate() {
-            const quantity = parseInt(document.getElementById("quantity").value);
-            const recipeKey = document.getElementById("recipe").value;
-            const recipe = recipes[recipeKey];
-            const resultDiv = document.getElementById("result");
-
-            if (isNaN(quantity) || quantity <= 0) {
-                resultDiv.innerText = "Помилка: Введіть коректну кількість.";
-                return;
-            }
-
-            let resultText = `Рецепт: ${recipe.name}\n\nНеобхідні ресурси:`;
-            for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
-                resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
-            }
-
-            resultDiv.innerText = resultText;
-        }
-    </script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
