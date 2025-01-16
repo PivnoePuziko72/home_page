@@ -235,7 +235,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    min-height: 90vh;
     background-color: #74b9ff;
 }
 
@@ -251,7 +251,7 @@ body {
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .craft-container input,
@@ -304,5 +304,5 @@ body {
 }
 
 .content {
-    margin-bottom: 30px; /* Высота футера + дополнительное пространство */
+    margin-bottom: 20px; 
 }
