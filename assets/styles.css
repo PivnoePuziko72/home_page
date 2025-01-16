@@ -345,38 +345,22 @@ body {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px; /* Увеличена максимальная ширина */
     margin-top: 50px;
+    margin-left: 50px; /* Добавлен отступ слева */
+    align-items: flex-start; /* Выравнивание по левому краю */
 }
 
 .flash-card {
     width: 100%;
-    height: 50px;
+    min-height: 60px; /* Увеличена минимальная высота */
     cursor: pointer;
-    transition: height 0.6s ease;
+    transition: all 0.6s ease;
+    margin-bottom: 10px;
 }
 
 .flash-card.active {
-    height: 200px;
-}
-
-.flash-card-inner {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    height: 100%;
-    overflow: hidden;
-}
-
-.flash-card {
-    width: 300px;
-    height: 50px;
-    cursor: pointer;
-    transition: height 0.6s ease;
-}
-
-.flash-card.active {
-    height: 200px;
+    min-height: 200px;
 }
 
 .flash-card-inner {
@@ -391,13 +375,18 @@ body {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    height: 50px;
+    height: 60px;
+    font-weight: bold; /* Жирный шрифт для заголовка */
+    font-size: 18px; /* Увеличен размер шрифта заголовка */
 }
 
 .flash-card-back {
     padding: 20px;
     opacity: 0;
     transition: opacity 0.3s ease;
+    transform-origin: top; /* Анимация раскрытия сверху вниз */
+    font-size: 16px; /* Размер шрифта для текста */
+    line-height: 1.5; /* Межстрочный интервал */
 }
 
 .flash-card.active .flash-card-back {
