@@ -336,7 +336,7 @@ body {
     top: 35%;
     right: 5%;
     transform: translateY(-50%);
-    padding-right: 30px;
+    padding-right: 42px; 
     padding-left: 30px;
     max-width: 600px;
 }
