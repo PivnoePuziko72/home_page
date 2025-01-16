@@ -236,6 +236,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 90px);
+    padding: 30px 20px 30px 20px; /* Добавлен нижний отступ */
     background-color: #74b9ff;
     position: relative;
 }
@@ -294,4 +295,22 @@ body {
     margin-bottom: 10px; /* Добавил отступ снизу */
     color: #2d3436;
     white-space: pre-line;
+}
+
+.craft-container .footer {
+    background-color: #c8e5fc;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    width: 100%;
+    position: fixed; /* Фиксированное позиционирование */
+    bottom: 0; /* Прикрепляем к низу */
+    left: 0; /* Выравниваем по левому краю */
+    z-index: 100; /* Убеждаемся, что футер поверх остального контента */
+}
+
+/* Добавьте отступ для основного контента, чтобы он не перекрывался футером */
+.content {
+    margin-bottom: 30px; /* Высота футера + дополнительное пространство */
 }
