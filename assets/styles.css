@@ -327,10 +327,10 @@ body {
     color: white;
     font: 400 24px 'Bradley Hand', cursive;
     font-weight: 650;
-    text-align: left;
+    text-align: right;
     position: absolute;
-    top: 40%;
-    right: 15%;
+    top: 35%;
+    right: 16%;
     transform: translateY(-50%);
     padding-right: 50px;
     padding-left: 20px;
