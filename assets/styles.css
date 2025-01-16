@@ -298,7 +298,7 @@ body {
 
 /* Hero section styles */
 .hero-section {
-    background-image: url('/images/indexphotos/0.png');
+    background-image: url('../images/indexphotos/0.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
