@@ -325,11 +325,12 @@ body {
 
 .hero-text {
     color: white;
-    font: 400 24px 'Comfortaa', sans-serif;
+    font: 400 24px 'Bradley Hand', cursive;
+    font-weight: 650;
     text-align: left;
     position: absolute;
-    top: 50%;
-    right: 0;
+    top: 40%;
+    right: 15%;
     transform: translateY(-50%);
     padding-right: 50px;
     padding-left: 20px;
