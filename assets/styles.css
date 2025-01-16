@@ -299,10 +299,10 @@ body {
     font-size: 12px;
     width: 100%;
     position: fixed; /* Фиксированное позиционирование */
-    bottom: -10px; 
+    bottom: 0px; 
     z-index: 100; /* Убеждаемся, что футер поверх остального контента */
 }
 
 .content {
-    margin-bottom: 20px; 
+    margin-bottom: 50px; 
 }
