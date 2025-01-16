@@ -298,10 +298,7 @@ body {
 
 
 .hero-section {
-    /* Временно заменим на цвет для проверки */
-    background-color: #ff0000;
-    /* После проверки вернем изображение */
-    /* background-image: url('../images/indexphotos/0.png');*/
+    background-image: url('../images/indexphotos/0.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
