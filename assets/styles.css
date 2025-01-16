@@ -301,10 +301,14 @@ body {
     background-image: url('../images/indexphotos/0.png');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     width: 100%;
     display: block;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
 }
 
 .hero-overlay {
