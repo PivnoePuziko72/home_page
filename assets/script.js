@@ -23,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Flash cards functionality
+    const flashCards = document.querySelectorAll('.flash-card');
+    flashCards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('active');
+        });
+    });
+
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             sidebar.classList.toggle('open');
@@ -110,30 +118,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const recipe = recipes[recipeKey];
         const resultDiv = document.getElementById("craft-result");
 
-            if (!/^\d+$/.test(quantityInput)) {
-                resultDiv.innerText = "Помилка: Допускаються лише цілі числа без всяких какашок.";
-                return;
-            }
+        if (!/^\d+$/.test(quantityInput)) {
+            resultDiv.innerText = "Помилка: Допускаються лише цілі числа без всяких какашок.";
+            return;
+        }
 
-            const quantity = parseInt(quantityInput);
-            
-            if (quantity < 1) {
-                resultDiv.innerText = "Помилка: Число повинно бути більше за 0.";
-                return;
-            }
+        const quantity = parseInt(quantityInput);
+        
+        if (quantity < 1) {
+            resultDiv.innerText = "Помилка: Число повинно бути більше за 0.";
+            return;
+        }
 
-            let resultText = `Необхідні ресурси для "${recipe.name.toLowerCase()}" у кількості ${quantity}:\n`;
-            for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
-                resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
-            }
-            resultDiv.innerText = resultText;
-            }
+        let resultText = `Необхідні ресурси для "${recipe.name.toLowerCase()}" у кількості ${quantity}:\n`;
+        for (const [ingredient, amount] of Object.entries(recipe.ingredients)) {
+            resultText += `\n- ${ingredient}: ${amount * quantity} шт.`;
+        }
+        resultDiv.innerText = resultText;
+    }
 
-            const calculateCraftBtn = document.getElementById("calculate-craft-btn");
-            if (calculateCraftBtn) {
-            calculateCraftBtn.addEventListener("click", calculateCraft);
-            }
-
+    const calculateCraftBtn = document.getElementById("calculate-craft-btn");
+    if (calculateCraftBtn) {
+        calculateCraftBtn.addEventListener("click", calculateCraft);
+    }
 
     if (searchButton) {
         searchButton.addEventListener("click", () => {
