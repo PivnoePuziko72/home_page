@@ -235,7 +235,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 50vh;
     background-color: #74b9ff;
 }
 
@@ -251,7 +251,7 @@ body {
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .craft-container input,
@@ -301,9 +301,4 @@ body {
     position: fixed; /* Фиксированное позиционирование */
     bottom: -10px; 
     z-index: 100; /* Убеждаемся, что футер поверх остального контента */
-}
-
-/* Добавьте отступ для основного контента, чтобы он не перекрывался футером */
-.content {
-    margin-bottom: 30px; /* Высота футера + дополнительное пространство */
 }
