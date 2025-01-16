@@ -344,10 +344,11 @@ body {
     width: 90%;
     margin: 20px auto;
     align-items: center;
+    padding-bottom: 60px; /* Added space at the bottom */
 }
 
 .flash-card {
-    width: 800px; /* Reduced default width */
+    width: 700px; /* Reduced inactive width */
     height: 75px;
     cursor: pointer;
     transition: height 0.6s ease, transform 0.3s ease, width 0.6s ease;
@@ -359,7 +360,7 @@ body {
     height: auto;
     min-height: 200px;
     transform: scale(1.02);
-    width: 1450px; /* Expanded width when active */
+    width: 1380px; /* Set to requested width */
 }
 
 .flash-card-inner {
