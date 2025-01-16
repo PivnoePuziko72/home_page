@@ -349,14 +349,10 @@ body {
 }
 
 .flash-card {
-    width: 1500px;
-    height: 90px;
+    width: 950px;
+    height: 750px;
     cursor: pointer;
-    transition: height 0.6s ease, transform 0.3s ease;
-}
-
-.flash-card:hover {
-    transform: translateX(10px);
+    transition: height 0.6s ease;
 }
 
 .flash-card.active {
@@ -408,15 +404,17 @@ body {
 .flash-card-back {
     padding: 0 15px 20px 15px;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     font-size: 16px;
     line-height: 1.5;
     transform-origin: top;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
 }
 
 .flash-card.active .flash-card-back {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
 }
 
