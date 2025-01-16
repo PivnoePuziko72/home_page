@@ -314,7 +314,7 @@ body {
 }
 
 .hero-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -350,14 +350,15 @@ body {
 }
 
 .flash-card {
-    width: 800px;
-    height: 40px; /* Уменьшена начальная высота */
+    width: 1500px;
+    height: 90px;
     cursor: pointer;
     transition: height 0.6s ease;
 }
 
 .flash-card.active {
-    height: 200px;
+    height: auto;
+    min-height: 200px;
 }
 
 .flash-card-inner {
@@ -373,19 +374,23 @@ body {
 .flash-card-front {
     display: flex;
     align-items: center;
-    padding: 0 15px;
-    height: 40px; /* Соответствует высоте карточки */
-    font-weight: 500;
-    font-size: 16px;
+    padding: 15px;
+    min-height: 90px;
     background: white;
     z-index: 1;
 }
 
+.flash-card-title {
+    font-weight: bold;
+    font-size: 20px; /* на 4px больше чем основной текст */
+    margin-left: 10px;
+}
+
 .flash-card-back {
-    padding: 20px 15px;
+    padding: 0 15px 20px 15px;
     opacity: 0;
     transition: opacity 0.3s ease;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
     transform-origin: top;
 }
@@ -393,7 +398,6 @@ body {
 .arrow {
     font-size: 18px;
     color: #0984e3;
-    margin-right: 10px;
     transition: transform 0.6s ease;
 }
 
