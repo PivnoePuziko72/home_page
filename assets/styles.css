@@ -235,27 +235,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 90px);
-    padding: 30px 20px 30px 20px; /* Добавлен нижний отступ */
+    min-height: 100vh;
     background-color: #74b9ff;
-    position: relative;
 }
 
 .craft-container {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 0px 20px;
     width: 400px;
     text-align: center;
-    margin: 0 auto;
-    transform: translateY(-90px);
+    margin: auto;
 }
 
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .craft-container input,
@@ -291,8 +287,7 @@ body {
 }
 
 .craft-container #craft-result {
-    margin-top: 15px;
-    margin-bottom: 10px; /* Добавил отступ снизу */
+    margin: 15px 0;
     color: #2d3436;
     white-space: pre-line;
 }
@@ -301,7 +296,6 @@ body {
     background-color: #c8e5fc;
     color: black;
     text-align: center;
-    padding: 5px 0;
     font-size: 12px;
     width: 100%;
     position: fixed; /* Фиксированное позиционирование */
