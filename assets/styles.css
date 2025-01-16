@@ -299,7 +299,7 @@ body {
     font-size: 12px;
     width: 100%;
     position: absolute; /* Изменено с fixed на absolute */
-    bottom: 0;
+    bottom: -30px;
     padding: 5px 0;
     margin-top: auto; /* Прижимает футер к низу */
 }
