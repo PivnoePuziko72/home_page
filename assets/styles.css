@@ -239,6 +239,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 90vh;
+    padding-top: 10px;
     background-color: #74b9ff;
 }
 
