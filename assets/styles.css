@@ -158,12 +158,15 @@ body {
 
 /* Футер */
 .footer {
-    background-color: #c8e5fc; /* Цвет фона футера, как у хедера */
+    background-color: #c8e5fc;
     color: black;
     text-align: center;
     padding: 5px 0;
     font-size: 12px;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 15; 
 }
 
 /* Дизайн для калькулятора депозиту */
