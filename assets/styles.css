@@ -1,3 +1,6 @@
+/* Немножко импортов */
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic);
+
 /* Общие стили для сайта */
 body {
     margin: 0;
@@ -325,7 +328,7 @@ body {
 
 .hero-text {
     color: white;
-    font: 'Luminari';
+    font-family: 'Comfortaa', sans-serif;
     font-size: 36px;
     font-weight: 350;
     text-align: right;
