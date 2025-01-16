@@ -325,7 +325,7 @@ body {
 
 .hero-text {
     color: white;
-    font-family: 'Luminari', fantasy;
+    font: 'Luminari';
     font-size: 36px;
     font-weight: 350;
     text-align: right;
