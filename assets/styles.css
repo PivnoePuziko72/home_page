@@ -374,7 +374,7 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     height: 100%;
     overflow: hidden;
-    display: flex;
+    display: fixed;
     flex-direction: column;
     width: 100%;
     transition: box-shadow 0.3s ease;
@@ -385,7 +385,7 @@ body {
 }
 
 .flash-card-front {
-    display: flex;
+    display: fixed;
     align-items: center;
     padding: 15px;
     min-height: 90px;
