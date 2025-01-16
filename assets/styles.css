@@ -298,11 +298,8 @@ body {
     text-align: center;
     font-size: 12px;
     width: 100%;
-    position: fixed; /* Фиксированное позиционирование */
-    bottom: 0px; 
-    z-index: 100; /* Убеждаемся, что футер поверх остального контента */
-}
-
-.content {
-    margin-bottom: 50px; 
+    position: absolute; /* Изменено с fixed на absolute */
+    bottom: 0;
+    padding: 5px 0;
+    margin-top: auto; /* Прижимает футер к низу */
 }
