@@ -251,7 +251,7 @@ body {
 .craft-container h1 {
     font-size: 24px;
     color: #2d3436;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .craft-container input,
@@ -300,7 +300,6 @@ body {
     width: 100%;
     position: fixed; /* Фиксированное позиционирование */
     bottom: 0; /* Прикрепляем к низу */
-    left: 0; /* Выравниваем по левому краю */
     z-index: 100; /* Убеждаемся, что футер поверх остального контента */
 }
 
