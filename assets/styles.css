@@ -306,7 +306,7 @@ body {
     background-position: center center;
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    position: relative;
     margin: 0;
     padding: 0;
     top: 0;
@@ -314,7 +314,7 @@ body {
 }
 
 .hero-overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -345,12 +345,12 @@ body {
     flex-direction: column;
     gap: 15px;
     width: 90%;
-    margin: 50px 0 0 50px;
-    align-items: flex-start;
+    margin: 50px auto; 
+    align-items: center; 
 }
 
 .flash-card {
-    width: 950px;
+    width: 1150px;
     height: 75px;
     cursor: pointer;
     transition: height 0.6s ease;
