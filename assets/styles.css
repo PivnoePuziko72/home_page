@@ -337,17 +337,6 @@ body {
     max-width: 600px;
 }
 
-.flash-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    margin: 5px auto;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 100px;
-}
-
 .flash-card {
     width: 85%;
     height: 75px;
@@ -359,10 +348,9 @@ body {
 }
 
 .flash-card.active {
-    height: auto;
-    min-height: 200px;
-    transform: scale(1.02);
+    height: auto; /* Изменено */
     width: 85%;
+    transform: scale(1.02);
     justify-content: center;
     margin: 0 auto; 
 }
@@ -371,13 +359,14 @@ body {
     background: #eaeaea;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    overflow: hidden;
+    height: auto; /* Изменено */
+    overflow: visible; /* Изменено */
     display: flex;
     flex-direction: column;
     width: 100%;
     transition: box-shadow 0.3s ease;
 }
+
 
 .flash-card:hover .flash-card-inner {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -418,6 +407,8 @@ body {
     transform-origin: top;
     transform: translateY(-20px);
     background: #eaeaea;
+    height: auto; 
+    overflow: visible; 
 }
 
 .flash-card.active .flash-card-back {
