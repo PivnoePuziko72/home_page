@@ -337,6 +337,17 @@ body {
     max-width: 600px;
 }
 
+.flash-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin: 5px auto;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
 .flash-card {
     width: 85%;
     height: 50px; /* Уменьшенная начальная высота */
