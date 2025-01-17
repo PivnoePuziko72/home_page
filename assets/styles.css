@@ -342,7 +342,7 @@ body {
     flex-direction: column;
     gap: 15px;
     width: 100%;
-    margin: 5px auto;
+    margin: 5px auto 15px; /* Added bottom margin */
     align-items: center;
     justify-content: center;
     padding-bottom: 30px;
@@ -372,8 +372,9 @@ body {
 .flash-card-front {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center horizontally */
     padding: 15px;
-    height: 50px; /* Соответствует высоте карточки */
+    height: 50px;
     background: #eaeaea;
     z-index: 1;
 }
@@ -381,7 +382,6 @@ body {
 .flash-card-title {
     font-weight: bold;
     font-size: 20px;
-    margin-left: 10px;
     transition: color 0.3s ease;
 }
 
@@ -392,7 +392,7 @@ body {
 .flash-card-back {
     padding: 15px;
     opacity: 0;
-    height: 0; /* Начальная высота */
+    height: 0;
     overflow: hidden;
     transition: all 0.6s ease;
     font-size: 16px;
@@ -409,6 +409,8 @@ body {
     font-size: 18px;
     color: #0984e3;
     transition: transform 0.6s ease, color 0.3s ease;
+    position: absolute;
+    right: 15px; /* Position arrow on the right */
 }
 
 .flash-card.active .arrow {
