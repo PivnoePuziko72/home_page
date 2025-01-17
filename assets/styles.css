@@ -345,7 +345,7 @@ body {
     margin: 5px auto;
     align-items: center;
     justify-content: center;
-    padding-bottom: 30px;
+    padding: 0 20px 30px 20px; /* Added horizontal padding */
 }
 
 .flash-card {
@@ -353,7 +353,7 @@ body {
     height: 50px; 
     cursor: pointer;
     transition: height 0.6s ease;
-    margin: 0 auto;
+    margin: 10px auto; /* Increased vertical margin */
 }
 
 .flash-card.active {
@@ -381,7 +381,7 @@ body {
 .flash-card-title {
     font-weight: bold;
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 20px; /* Increased left margin */
     transition: color 0.3s ease;
 }
 
@@ -390,7 +390,7 @@ body {
 }
 
 .flash-card-back {
-    padding: 15px 10px; 
+    padding: 15px 25px; /* Increased horizontal padding */
     opacity: 0;
     height: 0;
     overflow: hidden;
