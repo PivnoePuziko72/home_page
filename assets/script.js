@@ -23,6 +23,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    const CustomErrors = {
+        FILE_NOT_FOUND: { code: '72:01', message: 'Запрошуваний файл не знайдено' },
+        ACCESS_DENIED: { code: '72:02', message: 'Немає доступу до запрошуваного файлу' },
+        INVALID_DATA: { code: '72:03', message: 'Невірний формат даних' },
+        NETWORK_ERROR: { code: '72:04', message: 'Помилка мережі' },
+        PARSE_ERROR: { code: '72:05', message: 'Помилка парсингу даних' },
+        VALIDATION_ERROR: { code: '72:06', message: 'Помилка валідації' },
+        SERVER_ERROR: { code: '72:07', message: 'Помилка сервера' }
+    };
+
+    function logCustomError(error, additionalInfo = '') {
+        const errorDetails = CustomErrors[error] || { code: '72:72', message: 'Невідома помилка...' };
+        console.error(`Error ${errorDetails.code}: ${errorDetails.message}${additionalInfo ? ` - ${additionalInfo}` : ''}`);
+        return errorDetails;
+    }
+
     // Flash cards functionality
     const flashCards = document.querySelectorAll('.flash-card');
     flashCards.forEach(card => {
@@ -44,12 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let vehicles = [];
 
     fetch("./assets/carsData.json")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw 'SERVER_ERROR';
+            }
+            return response.json();
+        })
         .then(data => {
+            if (!data || !data.vehicles) {
+                throw 'INVALID_DATA';
+            }
             vehicles = data.vehicles;
         })
         .catch(error => {
-            console.error("Ошибка загрузки данных автомобилей:", error);
+            logCustomError(error, 'При завантаженні даних автомобілів');
         });
 
     function searchCars(query) {
@@ -94,14 +118,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function calculate_deposit() {
         const amount = parseFloat(document.getElementById("amount").value);
         const optionValue = document.getElementById("option").value;
-        const [rate, paydays] = optionValue.split(" ").map(Number);
         const resultDiv = document.getElementById("result");
 
+        if (!document.getElementById("amount")) {
+            logCustomError('ACCESS_DENIED', 'Елемент amount не знайдено');
+            return;
+        }
+
         if (isNaN(amount) || amount <= 0 || amount > 5000000) {
+            logCustomError('VALIDATION_ERROR', 'Некоректна сума депозиту');
             resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
             return;
         }
 
+        const [rate, paydays] = optionValue.split(" ").map(Number);
         const finalRate = 1.0 + rate / 100;
         const result = amount * Math.pow(finalRate, paydays);
         resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
@@ -118,7 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const recipe = recipes[recipeKey];
         const resultDiv = document.getElementById("craft-result");
 
+        if (!recipe) {
+            logCustomError('FILE_NOT_FOUND', `Рецепт ${recipeKey} не знайдено`);
+            return;
+        }
+
         if (!/^\d+$/.test(quantityInput)) {
+            logCustomError('VALIDATION_ERROR', 'Некоректна кількість');
             resultDiv.innerText = "Помилка: Допускаються лише цілі числа без всяких какашок.";
             return;
         }
