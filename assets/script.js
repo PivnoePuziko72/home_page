@@ -1,3 +1,10 @@
+// Добавляем Vercel Speed Insights
+(() => {
+    const script = document.createElement('script')
+    script.src = '/_vercel/speed-insights/script.js'
+    document.head.appendChild(script)
+})()
+
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
     const hamburger = document.querySelector(".hamburger");

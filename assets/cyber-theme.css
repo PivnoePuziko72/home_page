@@ -14,6 +14,9 @@ body.cyber-theme {
     background-color: var(--cyber-bg);
     color: var(--cyber-text);
     font-family: 'Press Start 2P', cursive;
+    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Header */
@@ -42,13 +45,18 @@ body.cyber-theme {
 }
 
 /* Main containers */
-.cyber-theme .content,
-.cyber-theme .deposit-content,
-.cyber-theme .craft-content,
-.cyber-theme #search-results {
+.cyber-theme .content {
     background-color: var(--cyber-bg);
     color: var(--cyber-primary);
-    border: 2px solid var(--cyber-primary);
+    border-top: 2px solid var(--cyber-primary);
+    border-bottom: 2px solid var(--cyber-primary);
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Flash cards */
