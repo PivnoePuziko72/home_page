@@ -70,7 +70,7 @@ body {
     left: 25px;
     width: 50px;
     height: 50px;
-    z-index: 10;
+    z-index: 21;
     cursor: pointer;
     transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
 }
@@ -79,20 +79,24 @@ body {
     transform: scale(1.2); /* Увеличиваем размер при наведении */
 }
 
+.hamburger.switching {
+    animation: logoSpin 0.5s ease-in-out;
+}
+
 /* Сайдбар, скрыт по умолчанию */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -200px; /* Скрыт за пределами экрана */
+    left: -300px;
     width: 200px;
     height: 100%;
-    background-color: #0984e3; /* Цвет сайдбара */
+    background-color: #0984e3;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: left 0.35s ease; /* Плавное открытие */
-    z-index: 2; /* Слой выше хедера */
+    transition: left 0.4s ease;
+    z-index: 20; /* Увеличиваем z-index */
 }
 
 /* Когда сайдбар открыт */
@@ -102,6 +106,7 @@ body {
 
 /* Стили для ссылок в сайдбаре */
 .sidebar a {
+    
     color: white;
     text-decoration: none;
     margin:
@@ -244,7 +249,7 @@ body {
     align-items: center;
     min-height: 90vh;
     padding-top: 10px;
-    background-color: #74b9ff;
+    background-color: inherit;;
 }
 
 .craft-container {
@@ -413,4 +418,59 @@ body {
 .flash-card.active .arrow {
     transform: rotate(90deg);
     color: #74b9ff;
+}
+
+.theme-switcher {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.theme-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.theme-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.theme-dot:hover {
+    transform: scale(1.2);
+}
+
+.theme-dot.default-theme {
+    background-color: #74b9ff;
+}
+
+.theme-dot.cyber-theme {
+    background-color: #000;
+    border-color: #00ff00;
+}
+
+.theme-dot.active {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+@keyframes logoSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
 }

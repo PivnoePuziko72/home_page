@@ -1,0 +1,214 @@
+:root {
+    --cyber-primary: #00ff00;
+    --cyber-bg: #000000;
+    --cyber-secondary: #003300;
+    --cyber-text: #00ff00;
+}
+
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+
+body.cyber-theme {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-text);
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Header */
+.cyber-theme .header {
+    background-color: var(--cyber-secondary);
+}
+
+/* Sidebar */
+.cyber-theme .sidebar {
+    background: var(--cyber-secondary);
+    border: 2px solid var(--cyber-primary);
+}
+
+.cyber-theme .sidebar a {
+    color: var(--cyber-text);
+    border: 1px solid var(--cyber-primary);
+    margin: 5px 0;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.cyber-theme .sidebar a:hover {
+    background: var(--cyber-primary);
+    color: var(--cyber-bg);
+    transform: scale(1.05);
+}
+
+/* Main containers */
+.cyber-theme .content,
+.cyber-theme .deposit-content,
+.cyber-theme .craft-content,
+.cyber-theme #search-results {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+    border: 2px solid var(--cyber-primary);
+}
+
+/* Flash cards */
+.cyber-theme .flash-card {
+    background: var(--cyber-secondary);
+    border: 1px solid var(--cyber-primary);
+}
+
+.cyber-theme .flash-card-inner,
+.cyber-theme .flash-card-front {
+    background-color: var(--cyber-secondary);
+}
+
+.cyber-theme .flash-card-title {
+    color: var(--cyber-primary);
+}
+
+/* Buttons */
+.cyber-theme button,
+.cyber-theme #search-btn,
+.cyber-theme .deposit-container button,
+.cyber-theme .craft-container button {
+    background-image: none;
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+    border: 1px solid var(--cyber-primary);
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.cyber-theme button:hover,
+.cyber-theme #search-btn:hover,
+.cyber-theme .deposit-container button:hover,
+.cyber-theme .craft-container button:hover {
+    background-color: var(--cyber-primary);
+    color: var(--cyber-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--cyber-primary);
+}
+
+/* Input fields */
+.cyber-theme input,
+.cyber-theme select,
+.cyber-theme #search-input {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+    border: 1px solid var(--cyber-primary);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+}
+
+.cyber-theme input:focus,
+.cyber-theme select:focus,
+.cyber-theme #search-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--cyber-primary);
+    border-color: var(--cyber-primary);
+}
+
+/* Deposit results */
+.cyber-theme #result,
+.cyber-theme #craft-result {
+    color: var(--cyber-primary);
+    text-shadow: 0 0 10px var(--cyber-primary);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Main containers */
+.cyber-theme .content {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+    border: 2px solid var(--cyber-primary);
+}
+
+/* Deposit and Craft containers */
+.cyber-theme #result,
+.cyber-theme #craft-result {
+    color: #00ff00;
+    text-shadow: 
+        0 0 5px #00ff00,
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+}
+
+/* Container items */
+.cyber-theme .deposit-container,
+.cyber-theme .craft-container {
+    background-color: var(--cyber-bg);
+    border: 1px solid var(--cyber-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* Убираем border для контейнера поиска авто */
+.cyber-theme #search-results {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+    border: none;
+}
+
+.cyber-theme .car-item {
+    background-color: var(--cyber-secondary);
+    border: 1px solid var(--cyber-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+}
+
+/* Headers */
+.cyber-theme h1,
+.cyber-theme h2,
+.cyber-theme h3 {
+    color: var(--cyber-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Highlight */
+.cyber-theme .highlight {
+    color: #fff;
+    background-color: var(--cyber-primary);
+    padding: 0 4px;
+}
+
+/* Footer */
+.cyber-theme .footer {
+    background-color: var(--cyber-secondary);
+    color: var(--cyber-primary);
+    border-top: 1px solid var(--cyber-primary);
+}
+
+/* Hero section */
+.cyber-theme .hero-section {
+    position: relative;
+}
+
+.cyber-theme .hero-overlay {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.cyber-theme .hero-text {
+    text-shadow: 0 0 10px var(--cyber-primary);
+}
+
+/* Специфичные стили для кибер-темы */
+.cyber-theme .hamburger {
+    filter: drop-shadow(0 0 5px var(--cyber-primary));
+}
+
+.cyber-theme .hamburger.switching {
+    filter: drop-shadow(0 0 10px var(--cyber-primary));
+}
+
+body:not(.cyber-theme) .hamburger {
+    filter: invert(1);
+}
+
+/* Убираем инверсию для кибер-темы */
+.cyber-theme .hamburger {
+    filter: drop-shadow(0 0 5px var(--cyber-primary));
+}
