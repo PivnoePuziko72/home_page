@@ -9,18 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hamburgerIcon) {
             hamburgerIcon.classList.add('switching');
             
-            // Меняем иконку на середине анимации
+            // Проверяем, находимся ли мы на главной странице
+            const isMainPage = window.location.pathname.endsWith('index.html') || 
+                             window.location.pathname.endsWith('/');
+            
+            // Используем разные пути в зависимости от страницы
+            const imagePath = isMainPage ? 'src/images/' : '../images/';
+            
             setTimeout(() => {
-                hamburgerIcon.src = theme === 'cyber' ? 'images/skufface.ico' : 'images/logo.ico';
+                hamburgerIcon.src = theme === 'cyber' 
+                    ? `${imagePath}skufface.ico` 
+                    : `${imagePath}logo.ico`;
             }, 250);
             
-            // Удаляем класс анимации после её завершения
             setTimeout(() => {
                 hamburgerIcon.classList.remove('switching');
             }, 500);
         }
     }
-    
+
     updateTheme(savedTheme);
     
     themeDots.forEach(dot => {

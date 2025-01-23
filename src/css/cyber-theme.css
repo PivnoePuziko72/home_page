@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: local('Press Start 2P'),  /* Сначала ищем локально установленный шрифт */
+         url('../fonts/Press_Start_2P/PressStart2P-Regular.woff') format('woff'), url('../fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --cyber-primary: #00ff00;
     --cyber-bg: #000000;
@@ -5,18 +14,19 @@
     --cyber-text: #00ff00;
 }
 
-@font-face {
-    font-family: 'Press Start 2P';
-    src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-}
-
 body.cyber-theme {
     background-color: var(--cyber-bg);
     color: var(--cyber-text);
-    font-family: 'Press Start 2P', cursive;
-    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+    font-family: 'Press Start 2P', monospace, 'Courier New', Courier;
+    -webkit-font-smoothing: none;
+    overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+}
+
+/* Явно задаем шрифт для всех элементов в кибер-теме */
+.cyber-theme * {
+    font-family: 'Press Start 2P', monospace, 'Courier New', Courier;
 }
 
 /* Header */
@@ -42,6 +52,20 @@ body.cyber-theme {
     background: var(--cyber-primary);
     color: var(--cyber-bg);
     transform: scale(1.05);
+}
+
+.cyber-theme .sidebar h2 {
+    color: var(--cyber-primary);
+    font-size: 1.5em;
+    margin: 15px 0 10px;
+    padding: 5px 15px;
+    border-bottom: 2px solid var(--cyber-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 80%;
+    text-align: center;
+    text-shadow: 0 0 5px var(--cyber-primary);
+    font-family: 'Press Start 2P', cursive;
 }
 
 /* Main containers */
@@ -120,15 +144,6 @@ body.cyber-theme {
     border-color: var(--cyber-primary);
 }
 
-/* Deposit results */
-.cyber-theme #result,
-.cyber-theme #craft-result {
-    color: var(--cyber-primary);
-    text-shadow: 0 0 10px var(--cyber-primary);
-    font-weight: bold;
-    font-size: 18px;
-}
-
 /* Main containers */
 .cyber-theme .content {
     background-color: var(--cyber-bg);
@@ -139,11 +154,12 @@ body.cyber-theme {
 /* Deposit and Craft containers */
 .cyber-theme #result,
 .cyber-theme #craft-result {
-    color: #00ff00;
+    color: auto;
     text-shadow: 
         0 0 5px #00ff00,
         0 0 10px #00ff00,
         0 0 20px #00ff00;
+    margin-bottom: 15px;
 }
 
 /* Container items */
@@ -200,7 +216,23 @@ body.cyber-theme {
 }
 
 .cyber-theme .hero-text {
+    color: var(--cyber-primary);
+    font-family: 'Comfortaa', sans-serif !important;
+    font-size: 36px;
+    font-weight: 350;
+    text-align: right;
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    transform: translateY(-50%);
+    padding-right: 42px;
+    padding-left: 30px;
+    max-width: 600px;
     text-shadow: 0 0 10px var(--cyber-primary);
+}
+
+.cyber-theme .hero-text * {
+    font-family: 'Comfortaa', sans-serif !important;
 }
 
 /* Специфичные стили для кибер-темы */

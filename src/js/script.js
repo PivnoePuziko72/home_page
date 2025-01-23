@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let vehicles = [];
 
-    fetch("./assets/carsData.json")
+    fetch("../json/carsData.json")
         .then(response => {
             if (!response.ok) {
                 throw 'SERVER_ERROR';
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             vehicles = data.vehicles;
         })
         .catch(error => {
-            logCustomError(error, 'При завантаженні даних автомобілів');
+            logCustomError(error, 'При завантаженні транспорту');
         });
 
     function searchCars(query) {
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayResults(cars, query) {
         searchResults.innerHTML = "";
         if (cars.length === 0) {
-            searchResults.innerHTML = "<p>Автомобілі не знайдено.</p>";
+            searchResults.innerHTML = "<p>Не знайшов жодного реультату за вашим запитом.</p>";
             return;
         }
 
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const highlightedName = query && query.trim() !== "" ? highlightText(car.name, query) : car.name;
             const highlightedId = query && query.trim() !== "" ? highlightText(car.id, query) : car.id;
             carElement.innerHTML = `
-                <img src="./images/carsmodels/${car.id}.png" alt="${car.name}">
+                <img src="../images/carsmodels/${car.id}.png" alt="${car.name}">
                 <p><strong>Модель:</strong> ${highlightedId}</p>
                 <p><strong>Назва:</strong> ${highlightedName}</p>
             `;

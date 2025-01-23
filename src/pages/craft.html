@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/cyber-theme.css">
+        <script src="../js/theme-switcher.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Івент-підрахуйщик 2.5</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../images/logox.ico">
+</head>
+<body>
+    <img src="../images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
+    <div class="sidebar">
+        <img src="../images/logof.ico" alt="Логотип" class="sidebar-logo">
+        <h2>Меню</h2>
+        <a href="../../index.html">Головна</a>
+        <a href="deposit.html">Калькулятор депозиту</a>
+        <h2>Адмін</h2>
+        <a href="weapons.html">Таблиця зброї (4+)</a>
+        <a href="vehall.html">Транспорт 2.5</a>
+        <h2>Архів</h2>
+        <a href="craft.html">Івент-підрахуйщик 2.5</a>
+            <div class="theme-dots">
+                <div class="theme-dot default-theme" data-theme="default"></div>
+                <div class="theme-dot cyber-theme" data-theme="cyber"></div>
+            </div>
+        </div>
+    </div>
+    <div class="craft-content">
+        <div class="craft-container">
+            <h1>Івент-підрахуйщик 2.5</h1>
+            <form id="craftForm"></form>
+                <input type="number" id="quantity" placeholder="Кількість (шт.)" min="1" required>
+                <select id="recipe">
+                    <option value="gift">Подарунок</option>
+                    <option value="glintwein">Глінтвейн</option>
+                </select>
+                <button type="button" id="calculate-craft-btn">Розрахувати</button>
+            </form>
+            <div id="craft-result"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2024-2025, by PivnoePuziko72. Івент проводився з 24.12.24 по 12.01.25</p>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

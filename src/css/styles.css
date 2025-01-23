@@ -1,5 +1,16 @@
-/* Немножко импортов */
-@import url(https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic);
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa/static/Comfortaa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa/static/Comfortaa-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 
 /* Общие стили для сайта */
 body {
@@ -25,43 +36,42 @@ body {
     z-index: 1; /* Слой ниже сайдбара */
     padding-left: -1540px; /* Отступ влево */
 }
-
 #search-btn {
     text-align: center;
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Легкая тень */
-    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    margin-left: 5px; 
     background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
 }
 
 #search-btn:hover {
-    background-position: right center; /* Анимация при наведении */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Усиление тени при наведении */
-    transform: scale(1.05); /* Легкое увеличение */
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
 }
 
-/* Поле ввода текста для поиска */
 #search-input {
-    width: 300px; /* Ширина поля */
-    padding: 10px; /* Внутренний отступ */
-    margin-right: 10px; /* Отступ справа от кнопки */
-    border: 1px solid #ccc; /* Серая рамка */
-    border-radius: 8px; /* Закругленные углы */
-    font-size: 16px; /* Размер текста */
+    width: 250px;
+    padding: 10px;
+    margin-right: 2px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-left: -30px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Эффект при фокусе на поле ввода */
 #search-input:focus {
-    border-color: #0984e3; /* Цвет рамки при фокусе (цвет сайдбара) */
-    box-shadow: 0 0 5px rgba(9, 132, 227, 0.5); /* Легкое свечение */
-    outline: none; /* Убираем стандартное выделение */
+    border-color: #0984e3;
+    box-shadow: 0 0 5px rgba(9, 132, 227, 0.5);
+    outline: none;
 }
 
 .hamburger {
@@ -122,6 +132,18 @@ body {
 .sidebar a:hover {
     background-color: #74b9ff;
     filter: brightness(1.2);
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 15px 0 10px;
+    padding: 5px 15px;
+    border-bottom: 2px solid #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 80%;
+    text-align: center;
 }
 
 .content {
@@ -189,7 +211,6 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
     width: 400px;
     text-align: center;
     margin: auto; /* Added to center horizontally */
@@ -198,11 +219,11 @@ body {
 .deposit-container h1 {
     font-size: 24px;
     color: #2d3436;
+    padding-top: 15px;
 }
 
 .deposit-container input,
-.deposit-container select,
-.deposit-container button {
+.deposit-container select {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
@@ -222,6 +243,8 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    width: 90%;
+    margin: 15px 0;
     background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
 }
 
