@@ -1,9 +1,20 @@
-// Добавляем Vercel Speed Insights
+// Vercel Speed Insights
 (() => {
-    const script = document.createElement('script')
-    script.src = '/_vercel/speed-insights/script.js'
-    document.head.appendChild(script)
-})()
+    const script = document.createElement('script');
+    script.src = '/_vercel/speed-insights/script.js';
+    document.head.appendChild(script);
+})();
+
+let matrixPatternCounter = 0;
+
+const matrixPatterns = [
+    // Бинарный код
+    "data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='20' fill='%2300ff00' font-family='monospace'%3E1 0 1%3C/text%3E%3Ctext x='10' y='40' fill='%2300ff00' font-family='monospace'%3E0 1 0%3C/text%3E%3C/svg%3E",
+    // PivnoePuziko72
+    "data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='80' y='20' fill='%2300ff00' font-family='monospace'%3EPivnoe%3C/text%3E%3Ctext x='80' y='40' fill='%2300ff00' font-family='monospace'%3EPuziko%3C/text%3E%3Ctext x='80' y='60' fill='%2300ff00' font-family='monospace'%3E72%3C/text%3E%3C/svg%3E",
+    // Admin05
+    "data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='150' y='20' fill='%2300ff00' font-family='monospace'%3EAdmin%3C/text%3E%3Ctext x='150' y='40' fill='%2300ff00' font-family='monospace'%3E05%3C/text%3E%3C/svg%3E"
+];
 
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
@@ -30,23 +41,72 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const CustomErrors = {
-        FILE_NOT_FOUND: { code: '72:01', message: 'Запрошуваний файл не знайдено' },
-        ACCESS_DENIED: { code: '72:02', message: 'Немає доступу до запрошуваного файлу' },
-        INVALID_DATA: { code: '72:03', message: 'Невірний формат даних' },
-        NETWORK_ERROR: { code: '72:04', message: 'Помилка мережі' },
-        PARSE_ERROR: { code: '72:05', message: 'Помилка парсингу даних' },
-        VALIDATION_ERROR: { code: '72:06', message: 'Помилка валідації' },
-        SERVER_ERROR: { code: '72:07', message: 'Помилка сервера' }
-    };
+    function copyToClipboard(text, resultDiv, type = 'default') {
+        if (!text || text.trim() === '' || text.includes('Помилка:')) {
+            const message = document.createElement('div');
+            message.className = 'copy-message';
+            message.textContent = "Нема що копіювати.";
+            resultDiv.appendChild(message);
+            setTimeout(() => {
+                message.remove();
+            }, 2000);
+            return;
+        }
+    
+        let copyText = text;
+        if (type === 'deposit') {
+            const match = text.match(/₴([\d.]+)/);
+            copyText = match ? match[1] : '';
+        }
 
-    function logCustomError(error, additionalInfo = '') {
-        const errorDetails = CustomErrors[error] || { code: '72:72', message: 'Невідома помилка...' };
-        console.error(`Error ${errorDetails.code}: ${errorDetails.message}${additionalInfo ? ` - ${additionalInfo}` : ''}`);
-        return errorDetails;
+        navigator.clipboard.writeText(copyText)
+            .then(() => {
+                const message = document.createElement('div');
+                message.className = 'copy-message';
+                message.textContent = "Результат скопійовано.";
+                resultDiv.appendChild(message);
+                setTimeout(() => {
+                    message.remove();
+                }, 2000);
+            })
+            .catch(() => {
+                const message = document.createElement('div');
+                message.className = 'copy-message';
+                message.textContent = "Неможливо скопіювати.";
+                resultDiv.appendChild(message);
+                setTimeout(() => {
+                    message.remove();
+                }, 2000);
+            });
     }
 
-    // Flash cards functionality
+    function showMatrixEffect() {
+        if (!document.body.classList.contains('cyber-theme')) {
+            return;
+        }
+
+        const oldMatrix = document.querySelector('.matrix-bg');
+        if (oldMatrix) {
+            oldMatrix.remove();
+        }
+
+        const matrixBg = document.createElement('div');
+        matrixBg.className = 'matrix-bg';
+        document.body.appendChild(matrixBg);
+        
+        void matrixBg.offsetWidth;
+        
+        matrixBg.style.backgroundImage = `url(${matrixPatterns[matrixPatternCounter]})`;
+        matrixBg.classList.add('active');
+        
+        matrixPatternCounter = (matrixPatternCounter + 1) % matrixPatterns.length;
+
+        setTimeout(() => {
+            matrixBg.remove();
+        }, 3000);
+    }
+
+    // Flash cards
     const flashCards = document.querySelectorAll('.flash-card');
     flashCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -54,33 +114,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Hamburger menu
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             sidebar.classList.toggle('open');
         });
     }
 
-    const searchInput = document.getElementById("search-input");
+    // Copy buttons
+    const copyDepositBtn = document.getElementById("copy-deposit-btn");
+    if (copyDepositBtn) {
+        copyDepositBtn.addEventListener("click", () => {
+            const resultDiv = document.getElementById("result");
+            const text = resultDiv.innerText;
+            copyToClipboard(text, resultDiv, 'deposit');
+        });
+    }
+
+    const copyCraftBtn = document.getElementById("copy-craft-btn");
+    if (copyCraftBtn) {
+        copyCraftBtn.addEventListener("click", () => {
+            const resultDiv = document.getElementById("craft-result");
+            const text = resultDiv.innerText;
+            copyToClipboard(text, resultDiv);
+        });
+    }
+
+// Пошук транспорту
     const searchButton = document.getElementById("search-btn");
+    const searchInput = document.getElementById("search-input");
     const searchResults = document.getElementById("search-results");
 
     let vehicles = [];
 
     fetch("../json/carsData.json")
-        .then(response => {
-            if (!response.ok) {
-                throw 'SERVER_ERROR';
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            if (!data || !data.vehicles) {
-                throw 'INVALID_DATA';
-            }
             vehicles = data.vehicles;
         })
         .catch(error => {
-            logCustomError(error, 'При завантаженні транспорту');
+            console.error('Error loading vehicles:', error);
         });
 
     function searchCars(query) {
@@ -94,9 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function highlightText(text, query) {
-        if (typeof text !== 'string') {
-            return text;
-        }
+        if (typeof text !== 'string') return text;
         const regExp = new RegExp(`(${query})`, 'gi');
         return text.replace(regExp, '<span class="highlight">$1</span>');
     }
@@ -104,15 +175,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayResults(cars, query) {
         searchResults.innerHTML = "";
         if (cars.length === 0) {
-            searchResults.innerHTML = "<p>Не знайшов жодного реультату за вашим запитом.</p>";
+            searchResults.innerHTML = "<p>Не знайшов жодного результату за вашим запитом.</p>";
             return;
         }
 
         cars.forEach(car => {
             const carElement = document.createElement("div");
             carElement.classList.add("car-item");
-            const highlightedName = query && query.trim() !== "" ? highlightText(car.name, query) : car.name;
-            const highlightedId = query && query.trim() !== "" ? highlightText(car.id, query) : car.id;
+            const highlightedName = query ? highlightText(car.name, query) : car.name;
+            const highlightedId = query ? highlightText(car.id, query) : car.id;
             carElement.innerHTML = `
                 <img src="../images/carsmodels/${car.id}.png" alt="${car.name}">
                 <p><strong>Модель:</strong> ${highlightedId}</p>
@@ -122,18 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function calculate_deposit() {
+    // Calculate functions
+    function calculateDeposit() {
         const amount = parseFloat(document.getElementById("amount").value);
         const optionValue = document.getElementById("option").value;
         const resultDiv = document.getElementById("result");
 
-        if (!document.getElementById("amount")) {
-            logCustomError('ACCESS_DENIED', 'Елемент amount не знайдено');
-            return;
-        }
-
         if (isNaN(amount) || amount <= 0 || amount > 5000000) {
-            logCustomError('VALIDATION_ERROR', 'Некоректна сума депозиту');
             resultDiv.innerText = "Помилка: Введіть суму від 1 до 5000000.";
             return;
         }
@@ -144,24 +210,15 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = `Підсумкова сума: ₴${result.toFixed(2)}`;
     }
 
-    const calculateDepositBtn = document.getElementById("calculate-deposit-btn");
-    if (calculateDepositBtn) {
-        calculateDepositBtn.addEventListener("click", calculate_deposit);
-    }
-
     function calculateCraft() {
         const quantityInput = document.getElementById("quantity").value.trim();
         const recipeKey = document.getElementById("recipe").value;
         const recipe = recipes[recipeKey];
         const resultDiv = document.getElementById("craft-result");
 
-        if (!recipe) {
-            logCustomError('FILE_NOT_FOUND', `Рецепт ${recipeKey} не знайдено`);
-            return;
-        }
+        if (!recipe) return;
 
         if (!/^\d+$/.test(quantityInput)) {
-            logCustomError('VALIDATION_ERROR', 'Некоректна кількість');
             resultDiv.innerText = "Помилка: Допускаються лише цілі числа без всяких какашок.";
             return;
         }
@@ -180,15 +237,28 @@ document.addEventListener("DOMContentLoaded", () => {
         resultDiv.innerText = resultText;
     }
 
+    // Button listeners
+    const calculateDepositBtn = document.getElementById("calculate-deposit-btn");
+    if (calculateDepositBtn) {
+        calculateDepositBtn.addEventListener("click", () => {
+            calculateDeposit();
+            showMatrixEffect();
+        });
+    }
+
     const calculateCraftBtn = document.getElementById("calculate-craft-btn");
     if (calculateCraftBtn) {
-        calculateCraftBtn.addEventListener("click", calculateCraft);
+        calculateCraftBtn.addEventListener("click", () => {
+            calculateCraft();
+            showMatrixEffect();
+        });
     }
 
     if (searchButton) {
         searchButton.addEventListener("click", () => {
             const query = searchInput.value.trim();
             searchCars(query);
+            showMatrixEffect();
         });
     }
 });

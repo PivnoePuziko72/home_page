@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Press Start 2P';
-    src: local('Press Start 2P'),  /* Сначала ищем локально установленный шрифт */
+    src: local('Press Start 2P'), 
          url('../fonts/Press_Start_2P/PressStart2P-Regular.woff') format('woff'), url('../fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -81,6 +81,7 @@ body.cyber-theme {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    z-index: 10;
 }
 
 /* Flash cards */
@@ -169,8 +170,64 @@ body.cyber-theme {
     border: 1px solid var(--cyber-primary);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
 }
+.cyber-theme .copy-btn i {
+    color: var(--cyber-primary);
+}
 
-/* Убираем border для контейнера поиска авто */
+.cyber-theme .copy-btn:hover i {
+    color: var(--cyber-bg);
+}
+
+@keyframes cyberFlicker {
+    0% { opacity: 0; transform: translateX(-5px); }
+    10% { opacity: 1; transform: translateX(3px); }
+    20% { opacity: 0.7; transform: translateX(-2px); }
+    30% { opacity: 1; transform: translateX(0); }
+    40% { opacity: 0.5; transform: translateX(2px); }
+    50% { opacity: 1; transform: translateX(-1px); }
+    60% { opacity: 0.8; transform: translateX(1px); }
+    70% { opacity: 1; transform: translateX(0); }
+    80% { opacity: 0.9; transform: translateX(-1px); }
+    90% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(5px); }
+}
+
+.cyber-theme .copy-message {
+    animation: cyberFlicker 2s linear forwards;
+    color: var(--cyber-primary);
+    text-shadow: 0 0 5px var(--cyber-primary);
+    margin: 10px 0;
+}
+
+.cyber-theme .deposit-container select,
+.cyber-theme .craft-container select {
+    appearance: none;
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+    border: 1px solid var(--cyber-primary);
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%2300ff00' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 30px;
+}
+
+.cyber-theme .deposit-container select:hover,
+.cyber-theme .craft-container select:focus,
+.cyber-theme .deposit-container select:active,
+.cyber-theme .craft-container select:hover {
+    background-color: var(--cyber-secondary);
+    border-color: var(--cyber-primary);
+    box-shadow: 0 0 10px var(--cyber-primary);
+    color: var(--cyber-primary);
+}
+
+.cyber-theme .deposit-container select option,
+.cyber-theme .craft-container select option {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-primary);
+}
+
 .cyber-theme #search-results {
     background-color: var(--cyber-bg);
     color: var(--cyber-primary);
@@ -251,4 +308,99 @@ body:not(.cyber-theme) .hamburger {
 /* Убираем инверсию для кибер-темы */
 .cyber-theme .hamburger {
     filter: drop-shadow(0 0 5px var(--cyber-primary));
+}
+
+.cyber-theme .matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='matrix' width='50' height='50' patternUnits='userSpaceOnUse'%3E%3Ctext x='0' y='20' fill='%2300ff00' font-family='monospace' font-size='20'%3E1 0%3C/text%3E%3Ctext x='10' y='40' fill='%2300ff00' font-family='monospace' font-size='20'%3E0 1%3C/text%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23matrix)'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    opacity: 0;
+    display: none;
+}
+
+@keyframes matrixRain {
+    0% {
+        background-position: 0% 0%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        background-position: 0% 100%;
+        opacity: 0;
+    }
+}
+
+.cyber-theme .matrix-bg.active {
+    display: block;
+    animation: matrixRain 2s linear;
+}
+
+.cyber-theme .theme-promo {
+    background: var(--cyber-secondary);
+    border: 1px solid var(--cyber-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.cyber-theme .light-theme-img {
+    display: none;
+}
+
+.cyber-theme .dark-theme-img {
+    display: block;
+}
+
+.cyber-theme .light-theme-text {
+    display: none;
+}
+
+.cyber-theme .dark-theme-text {
+    display: block;
+    color: var(--cyber-primary);
+}
+
+@media (max-width: 768px) {
+    .theme-promo {
+        height: auto;
+    }
+    
+    .theme-promo-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .theme-promo img {
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    
+    .theme-promo-text {
+        padding: 7px 0;
+        font-size: 16px;
+    }
+}
+
+.cyber-theme .theme-promo .theme-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cyber-theme .theme-promo .theme-dot.cyber-theme {
+    display: none;
+}
+
+.cyber-theme .theme-promo .theme-dot.default-theme {
+    display: block;
 }

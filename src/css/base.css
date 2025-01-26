@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa/static/Comfortaa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa/static/Comfortaa-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Базовые стили */
+body {
+    margin: 0;
+    font-family: 'Comfortaa', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #74b9ff;
+}
+
+/* Header */
+.header {
+    background-color: #c8e5fc;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+}
+
+.hamburger {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    z-index: 21;
+    cursor: pointer;
+    transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
+}
+
+.hamburger:hover {
+    transform: scale(1.2); /* Увеличиваем размер при наведении */
+}
+
+.hamburger.switching {
+    animation: logoSpin 0.5s ease-in-out;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 200px;
+    height: 100%;
+    background-color: #0984e3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: left 0.4s ease;
+    z-index: 20;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-align: center;
+    width: 90%;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #74b9ff;
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 15px 0 10px;
+    padding: 5px 15px;
+    border-bottom: 2px solid #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 80%;
+    text-align: center;
+}
+
+.sidebar .theme-switcher {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar .theme-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Content */
+.content {
+    width: 100%;
+    background-color: #74b9ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    z-index: 10;
+}
+
+/* Footer */
+.footer {
+    background-color: #c8e5fc;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 15;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+    
+    .content iframe,
+    .content img {
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    .content iframe {
+        height: 70vh;
+        min-height: 300px;
+    }
+}

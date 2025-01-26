@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="uk">
     <head>
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="../css/cyber-theme.css">
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/components.css">
+        <link rel="stylesheet" href="../css/cyber-theme.css">    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../js/theme-switcher.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +42,12 @@
                     <option value="0.3 20">20 PayDay - 0.3%</option>
                     <option value="0.8 60">60 PayDay - 0.8%</option>
                 </select>
-                <button type="button" id="calculate-deposit-btn">Розрахувати</button>
+                <div class="button-group">
+                    <button type="button" id="calculate-deposit-btn">Розрахувати</button>
+                    <button type="button" id="copy-deposit-btn" class="copy-btn">
+                        <i class="fa fa-files-o" aria-hidden="true"></i>
+                    </button>
+                </div>
             </form>
             <div id="result"></div>
         </div>
@@ -48,6 +55,7 @@
     <div class="footer">
         <p>© 2024-2025, by PivnoePuziko72. Скрипт депозиту by Kirill Phantom</p>
     </div>
+    <div class="matrix-bg"></div>
     <script src="../js/script.js"></script>
 </body>
 </html>
