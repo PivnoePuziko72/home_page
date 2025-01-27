@@ -181,13 +181,6 @@
     font-size: 20px;
 }
 
-@keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(10px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-10px); }
-}
-
 .copy-message {
     animation: fadeInOut 2s ease forwards;
     margin: 10px 0;
@@ -426,21 +419,6 @@
     border-color: #00ff00;
 }
 
-@keyframes logoSpin {
-    0% {
-        transform: rotate(0deg) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: rotate(180deg) scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: rotate(360deg) scale(1);
-        opacity: 1;
-    }
-}
-
 .theme-promo {
     width: 90%;
     max-width: 1200px;
@@ -466,14 +444,22 @@
     width: auto;
     object-fit: cover;
     border-radius: 10px;
+    transition: none;
+}
+
+.light-theme-img.hiding,
+.dark-theme-img.hiding {
+    animation: bubblePop 0.5s ease-out forwards;
 }
 
 .light-theme-img {
     display: block;
+    animation: bubblePop 0.5s ease-out reverse;
 }
 
 .dark-theme-img {
     display: none;
+    animation: bubblePop 0.5s ease-out reverse;
 }
 
 .theme-promo-text {

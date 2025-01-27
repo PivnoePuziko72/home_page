@@ -1,20 +1,16 @@
-// Vercel Speed Insights
+// Vercel Analytics
+(() => {
+    const script = document.createElement('script');
+    script.src = '/_vercel/insights/script.js';
+    document.head.appendChild(script);
+})();
+
+// Vercel Speed Insights 
 (() => {
     const script = document.createElement('script');
     script.src = '/_vercel/speed-insights/script.js';
     document.head.appendChild(script);
 })();
-
-let matrixPatternCounter = 0;
-
-const matrixPatterns = [
-    // Бинарный код
-    "data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='20' fill='%2300ff00' font-family='monospace'%3E1 0 1%3C/text%3E%3Ctext x='10' y='40' fill='%2300ff00' font-family='monospace'%3E0 1 0%3C/text%3E%3C/svg%3E",
-    // PivnoePuziko72
-    "data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='80' y='20' fill='%2300ff00' font-family='monospace'%3EPivnoe%3C/text%3E%3Ctext x='80' y='40' fill='%2300ff00' font-family='monospace'%3EPuziko%3C/text%3E%3Ctext x='80' y='60' fill='%2300ff00' font-family='monospace'%3E72%3C/text%3E%3C/svg%3E",
-    // Admin05
-    "data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='150' y='20' fill='%2300ff00' font-family='monospace'%3EAdmin%3C/text%3E%3Ctext x='150' y='40' fill='%2300ff00' font-family='monospace'%3E05%3C/text%3E%3C/svg%3E"
-];
 
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector(".sidebar");
@@ -80,31 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    function showMatrixEffect() {
-        if (!document.body.classList.contains('cyber-theme')) {
-            return;
-        }
-
-        const oldMatrix = document.querySelector('.matrix-bg');
-        if (oldMatrix) {
-            oldMatrix.remove();
-        }
-
-        const matrixBg = document.createElement('div');
-        matrixBg.className = 'matrix-bg';
-        document.body.appendChild(matrixBg);
-        
-        void matrixBg.offsetWidth;
-        
-        matrixBg.style.backgroundImage = `url(${matrixPatterns[matrixPatternCounter]})`;
-        matrixBg.classList.add('active');
-        
-        matrixPatternCounter = (matrixPatternCounter + 1) % matrixPatterns.length;
-
-        setTimeout(() => {
-            matrixBg.remove();
-        }, 3000);
-    }
 
     // Flash cards
     const flashCards = document.querySelectorAll('.flash-card');
@@ -149,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch("../json/carsData.json")
         .then(response => response.json())
+        .catch(() => fetch("src/json/carsData.json").then(response => response.json()))
         .then(data => {
             vehicles = data.vehicles;
         })

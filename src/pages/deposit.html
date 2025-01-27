@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="uk">
-    <head>
-        <link rel="stylesheet" href="../css/base.css">
-        <link rel="stylesheet" href="../css/components.css">
-        <link rel="stylesheet" href="../css/cyber-theme.css">    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="../js/theme-switcher.js"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Підключення CSS-файлів -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/cyber-theme.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Визначення сторінки -->
     <title>Калькулятор депозиту</title>
-    <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/x-icon" href="../images/logox.ico">
 </head>
 <body>
-    <img src="../images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
+    <!-- Кнопка-гамбургер -->
+    <img src="../images/logo.ico" alt="Логотип" class="hamburger">
+    <!-- Сайдбар -->
     <div class="sidebar">
         <img src="../images/logof.ico" alt="Логотип" class="sidebar-logo">
         <h2>Меню</h2>
         <a href="../../index.html">Головна</a>
-        <a href="deposit.html">Калькулятор депозиту</a>
+        <a href="../pages/deposit.html">Калькулятор депозиту</a>
         <h2>Адмін</h2>
-        <a href="weapons.html">Таблиця зброї (4+)</a>
-        <a href="vehall.html">Транспорт 2.5</a>
+        <a href="../pages/weapons.html">Таблиця зброї (4+)</a>
+        <a href="../pages/vehall.html">Транспорт 2.5</a>
         <h2>Архів</h2>
-        <a href="craft.html">Івент-підрахуйщик 2.5</a>
+        <a href="../pages/craft.html">Івент-підрахуйщик 2.5</a>
         <div class="theme-switcher">
             <div class="theme-dots">
                 <div class="theme-dot default-theme" data-theme="default"></div>
                 <div class="theme-dot cyber-theme" data-theme="cyber"></div>
             </div>
         </div>
+        </div>
     </div>
+    <!-- Контент -->
     <div class="content deposit-content">
         <div class="deposit-container">
             <h1>Калькулятор депозиту</h1>
@@ -52,10 +57,12 @@
             <div id="result"></div>
         </div>
     </div>
+    <!-- Футер -->
     <div class="footer">
         <p>© 2024-2025, by PivnoePuziko72. Скрипт депозиту by Kirill Phantom</p>
     </div>
-    <div class="matrix-bg"></div>
+    <!-- Підключення JS-скриптів -->
     <script src="../js/script.js"></script>
+    <script src="../js/theme-switcher.js"></script>
 </body>
 </html>

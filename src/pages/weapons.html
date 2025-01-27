@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <head>
-        <link rel="stylesheet" href="../css/base.css">
-        <link rel="stylesheet" href="../css/components.css">
-        <link rel="stylesheet" href="../css/cyber-theme.css">    
-        <script src="../js/theme-switcher.js"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Підключення CSS-файлів -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/cyber-theme.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <!-- Визначення сторінки -->
     <title>Таблиця зброї</title>
     <link rel="icon" type="image/x-icon" href="../images/logox.ico">
 </head>
 <body>
-    <img src="../images/logo.ico" alt="Логотип" class="hamburger" id="hamburger">
+    <!-- Кнопка-гамбургер -->
+    <img src="../images/logo.ico" alt="Логотип" class="hamburger">
+    <!-- Сайдбар -->
     <div class="sidebar">
         <img src="../images/logof.ico" alt="Логотип" class="sidebar-logo">
         <h2>Меню</h2>
         <a href="../../index.html">Головна</a>
-        <a href="deposit.html">Калькулятор депозиту</a>
+        <a href="../pages/deposit.html">Калькулятор депозиту</a>
         <h2>Адмін</h2>
-        <a href="weapons.html">Таблиця зброї (4+)</a>
-        <a href="vehall.html">Транспорт 2.5</a>
+        <a href="../pages/weapons.html">Таблиця зброї (4+)</a>
+        <a href="../pages/vehall.html">Транспорт 2.5</a>
         <h2>Архів</h2>
-        <a href="craft.html">Івент-підрахуйщик 2.5</a>
+        <a href="../pages/craft.html">Івент-підрахуйщик 2.5</a>
         <div class="theme-switcher">
             <div class="theme-dots">
                 <div class="theme-dot default-theme" data-theme="default"></div>
                 <div class="theme-dot cyber-theme" data-theme="cyber"></div>
             </div>
         </div>
+        </div>
     </div>
-
+    <!-- Контент -->
     <div class="content">
         <iframe 
             src="https://docs.google.com/document/d/1_FJbEuSuS18Cgmc38k0-hmGRBmKe4S4DHzElngbfd24/preview" 
@@ -43,10 +47,13 @@
             alt="Айді скілл зброї" 
             style="width: 90%; max-width: 800px; height: auto; margin: 20px auto;">
     </div>
-
+    <div class="matrix-bg"></div>
+    <!-- Футер -->
     <div class="footer">
         <p>© 2024-2025, by PivnoePuziko72. Табличка зброї (Google) by SuffiXXX</p>
     </div>
+    <!-- Підключення JS-скриптів -->
     <script src="../js/script.js"></script>
+    <script src="../js/theme-switcher.js"></script>
 </body>
 </html>
