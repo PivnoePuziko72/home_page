@@ -75,7 +75,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 2000);
             });
     }
-
+    
+    // Matrix effect function
+    function showMatrixEffect() {
+        const matrixBg = document.querySelector('.matrix-bg');
+        if (matrixBg) {
+            matrixBg.style.display = 'block';
+            matrixBg.classList.add('active');
+            setTimeout(() => {
+                matrixBg.classList.remove('active');
+                matrixBg.style.display = 'none';
+            }, 2000);
+        }
+    }
 
     // Flash cards
     const flashCards = document.querySelectorAll('.flash-card');

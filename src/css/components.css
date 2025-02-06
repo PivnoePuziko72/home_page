@@ -187,6 +187,7 @@
 }
 
 .deposit-container select,
+.craft-container select,
 .craft-container select {
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
@@ -198,7 +199,8 @@
 
 /* Стили для hover состояния */
 .deposit-container select:hover,
-.craft-container select:hover {
+.craft-container select:hover,
+.warns-container select:hover {
     border-color: #0984e3;
 }
 
@@ -484,4 +486,192 @@
 .theme-toggle {
     padding-right: 20px;
     transform: scale(1.2);
+}
+
+.password-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.password-error {
+    width: 90%;
+    color: #ff0000;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    animation: fadeInOut 3s ease forwards;
+    display: none;
+}
+
+.password-container input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.password-container button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.password-container button:hover {
+    background-position: right center;
+    transform: scale(1.05);
+}
+
+.warns-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    padding: 20px;
+    margin: 20px auto;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.warns-container h1 {
+    font-size: 24px;
+    color: #2d3436;
+    text-align: center;
+}
+
+.warns-container input,
+.warns-container select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.warns-container input[type="datetime-local"] {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.warns-container button {
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;
+    margin: 15px 0;
+    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
+}
+
+.warns-container button:hover {
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.warns-container select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 30px;
+}
+
+.warns-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.warns-history {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    padding: 20px;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.warns-search {
+    display: flex;
+    gap: 10px;
+}
+
+.warns-search input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.warns-search button {
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, #0984e3 0%, #74b9ff 51%, #0984e3 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.warns-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.warn-item {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.warn-item h3 {
+    margin: 0 0 10px;
+    color: #2d3436;
+    font-size: 16px;
+}
+
+.warn-item p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.warn-date {
+    color: #666;
+    font-size: 12px;
+    text-align: right;
 }
